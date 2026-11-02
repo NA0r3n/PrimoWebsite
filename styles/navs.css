@@ -30,6 +30,12 @@ header > .topnav-cta {
     width: 8.5rem;
     height: 2.3rem;
     order: 2; 
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+header > .topnav-cta:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
 }
 
 header > .topnav-cta img {
@@ -59,6 +65,16 @@ header > nav > ul {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+header > nav > ul li{
+    transition: color 0.2s ease;
+    user-select: none;
+}
+
+header > nav > ul li:hover {
+    transform: translateY(-3px);
+    color: #ff4757;
 }
 
 /* Make the hamburger menu trigger show pointer cursor */
