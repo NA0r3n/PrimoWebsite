@@ -3,20 +3,22 @@
     backdrop-filter: blur(40px);
     -webkit-backdrop-filter: blur(40px);
     transform: translateZ(0);
-    min-height: 100vh;
 
     display: flex;
     justify-content: center;
-    place-items: center;
+    align-items: center;
     gap: 48px;
-
+    padding: 3rem 1.5rem;
+    box-sizing: border-box;
+    overflow: hidden;
     position: relative;
-    bottom: 48px;
+    top: .75rem;
 }
 
 #hero > .radial-visual-fx {
     position: absolute;
-    width: 62.94rem;
+    width: 100%;
+    max-width: 62.94rem;
     aspect-ratio: 1/1;
     top: 50%;
     left: 50%;
@@ -28,13 +30,60 @@
 
 #hero > .item-1 {
     display: grid;
+    gap: 16px;
+    max-width: 100%;
+    text-align: left;
+    justify-items: start;
+}
+
+#hero > .item-1 > .brand-alert {
+    width: fit-content;
+    height: auto;
+    padding: 6px 14px;
+    box-sizing: border-box;
+    white-space: nowrap; 
+
+    border-radius: 30px;
+    background-color: #FF00002B;
+    border: 1px solid #FF0000;
+    color: #CB0913;
+
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+    font-size: clamp(5px, 2.5vw, 11px);
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
+}
+
+#hero > .item-1 > .brand-alert > .red-dot {
+    width: 0.75rem;
+    aspect-ratio: 1/1;
+}
+
+#hero > .item-1 > .tagline{
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(1rem, 3vw, 24px);
+
+    color: #FFB800;
+    border: 1px solid #2A292E;
+    width: fit-content;
+    text-align: left;
+    padding: .4rem 1.2rem;
+    border-radius: 10px;
+
+    background-color: #19181B;
 }
 
 #hero > .item-1 > h1 {
     font-family: Outfit, sans-serif;
     font-weight: 800;
-    font-size: 4.38rem;
+    font-size: clamp(1.15rem, 7vw, 3.5rem);
     line-height: 100%;
     letter-spacing: -0.05em;
 }
@@ -57,72 +106,104 @@
     background-clip: text;
 }
 
-#hero > .item-1 > .impactful-text {
-    width: 20.94rem;
-    height: 3.63rem;
-    border-radius: 10px;
-}
-
 #hero > .item-1 > .message {
-    width: 34.375rem;
+    width: 100%;
+    max-width: 34.375rem;
     font-family: Maitree, serif;
     font-weight: 700;
-    font-size: initial;
-    line-height: 100%;
+    font-size: clamp(0.4rem, 2vw, .8rem);
+    line-height: 140%;
     color: #67858B;
+
+    margin: 1.25rem 1.25rem 1.25rem;
 }
 
 #hero > .item-1 > #btns-wrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 #hero > .item-1 > #btns-wrapper > button {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    width: 16.25rem;
-    height: auto;
+    color: #fff;
+
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.5rem, 2.5vw, 1rem);
+
+    width: 100%;
+    max-width: 234px;
+    height: clamp(45px, 12vw, 60px);
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+}
+
+#hero > .item-1 > #btns-wrapper > button.primary {
+    background-color: #FF0000;
+    border: 1px solid #b9b4b4;
+    color: #FFFFFF;
+    box-shadow: 0px 8px 25px rgba(255, 0, 0, 0.8);
+}
+
+#hero > .item-1 > #btns-wrapper > button.secondary {
+    background-color: #000000;
+    border: 1px solid #0f0e0e;
+    color: #FFFFFF;
+    box-shadow: 0px 8px 25px rgba(8, 8, 8, 0.8);
+}
+
+#hero > .item-1 > #btns-wrapper > button.secondary > i {
+    position: relative;
+    left: 0.25rem; /* Reduced offset so it doesn't push too far on tiny screens */
+}
+
+#hero > .item-1 > #btns-wrapper > button > i {
+    font-size: clamp(1rem, 3vw, 1.5rem); /* Icons scale down too */
 }
 
 #hero > .item-1 > .line-separator{
-    width: 27.75rem;
+    width: 100%;
+    max-width: 27.75rem;
     border-width: 1px;
+    border-color: #2A292E;
 }
 
 #hero > .item-1 > .achievements{
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 24px;
 }
 
-#hero > .item-1 > .achievements > div > .achievement{
+#hero > .item-1 > .achievements > div > .achievement,
+#hero > .item-1 > .achievements > div > .crafted-sauces {
     color: white;
-    font-family: Outfit;
+    font-family: Outfit, sans-serif;
     font-weight: 800;
-    font-style: ExtraBold;
-    font-size: 2rem;
+    font-size: clamp(0.75rem, 5vw, 2rem);
     line-height: 100%;
-    letter-spacing: 0%;
 }
 
-#hero > .item-1 > .achievements > div > .crafted-sauces{
+#hero > .item-1 > .achievements > div > .crafted-sauces {
     color: #FFB800;
-    font-family: Outfit;
-    font-weight: 800;
-    font-style: ExtraBold;
-    font-size: 2rem;
-    line-height: 100%;
-    letter-spacing: 0%;
 }
 
 #hero > .item-1 > .achievements > div > .label{
     color: #FFFFFF80;
-    font-family: Outfit;
+    font-family: Outfit, sans-serif;
     font-weight: 700;
-    font-style: Bold;
-    font-size: initial;
+    font-size: 0.8rem;
     line-height: 100%;
-    letter-spacing: 0%;
 }
 
 #hero > .item-1 > .achievements > div {
@@ -130,8 +211,108 @@
 }
 
 #hero > .item-2 > .ad-btn {
-    width: 31.25rem;
+    width: 100%;
+    max-width: 26rem;
     height: auto;
     border: none;
     background-color: transparent;
+}
+
+#hero > .item-2 > .ad-btn img {
+    width: 100%;
+    height: auto;
+}
+
+/* Tablet & Mobile View (Under 1200px) */
+@media (max-width: 1200px) {
+    #hero {
+        margin-top: 2rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+        top: -2.25rem;
+    }
+    
+    #hero > .radial-visual-fx {
+        top: 35%;
+    }
+
+    #hero > .item-2 {
+        margin-top: 5rem;
+    }
+
+    #hero > .item-1 > .tagline{
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 900px) {
+    #hero > .item-1 > #btns-wrapper {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 575px) {
+    #hero {
+        gap: 24px;
+        padding-left: 1rem;
+    }
+
+    #hero > .item-1 > .message {
+        max-width: 30rem;
+    }
+
+    #hero > .item-1 > .brand-alert {
+        white-space: wrap; 
+        max-width: 30rem;
+    }
+
+    #hero > .item-1 > #btns-wrapper {
+        max-width: 25rem;        
+    }
+
+    #hero > .radial-visual-fx {
+        top: 20%;
+    }
+
+    #hero > .item-1 > .line-separator {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 470px) {
+    #hero > .item-1 > .brand-alert {
+        max-width: 20rem;
+    }
+    
+    #hero > .item-1 > #btns-wrapper {
+        max-width: 20rem;        
+    }
+
+    #hero > .item-1 > .message {
+        max-width: 18rem;
+    }
+
+    #hero > .item-2 {
+        position: relative;
+        top: -4rem;
+    }
+}
+@media (max-width: 345px) {
+    #hero > .item-1 > .brand-alert {
+        max-width: 16rem;
+    }
+    
+    #hero > .item-1 > #btns-wrapper {
+        max-width: 16rem;
+    }
+
+    #hero > .item-1 > .message {
+        max-width: 15rem;
+    }
+
+    #hero > .radial-visual-fx {
+        top: 20%;
+    }
 }
