@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Maitree:wght@200;300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInFast {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+#hero, #promos, #signatures {
+  animation: fadeIn 0.6s ease forwards;
+}
+#promos {
+  animation-delay: 0.15s;
+}
+#signatures {
+  animation-delay: 0.3s;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,22 +33,77 @@
 }
 html, body{
     scroll-behavior: smooth;
-    height: 100%;
-    overflow-y: auto;
     font-size: 16px;
-
     background-color: rgba(11, 11, 12, 1);
-    min-height: 100%;
-    margin: 0;
-    overflow-y: auto;
     overflow-x: hidden;
-}
-ul{
-    list-style: none;
 }
 .center-svg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+footer {
+  margin-top: 15rem;
+  background-color: #000;
+  width: 100%;
+}
+
+footer > #wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 4rem 2rem 6rem;
+}
+
+footer > #wrapper > div {
+  padding: 0;
+}
+
+footer > #wrapper > div > h1.title {
+  color: #fff;
+  font-size: clamp(.8rem, 5vw, 2.25rem);
+}
+
+footer > #wrapper > div > h4.desc {
+  color: #ffffff9c;
+  font-size: clamp(0.2rem, 2vw, 1rem);
+}
+
+footer > #wrapper > div.history {
+  width: min(35rem, 100%);
+}
+
+footer > #wrapper > div:has(h4) > h4 {
+  margin-top: 0.5rem;
+}
+
+footer > #wrapper > div > ul{
+  list-style-type: disc !important;
+  padding-left: 1.2rem !important;
+  color: #ffffff9c;
+  text-align: left;
+}
+
+footer > #wrapper > div > ul > li {
+  font-size: clamp(0.2rem, 2vw, 1rem);
+}
+
+footer > #wrapper > div:has(ul) > ul {
+  margin-top: 1rem;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  footer {
+    margin-top: 8rem;
+  }
+  footer > #wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3rem 1.25rem 5rem;
+    gap: 2.5rem;
+  }
 }

@@ -1,0 +1,61 @@
+#signatures {
+  margin-top: 10rem;
+  font-family: Outfit, sans-serif;
+  font-weight: 800;
+  width: 100%;
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.3s;
+}
+
+#signatures > .header {
+  width: 100%;
+  max-width: 70rem;
+  margin: 0 auto 2rem auto;
+  padding: 0 1rem;
+}
+
+#signatures > .header > h6 {
+  color: #ff0000;
+  font-size: clamp(0.2rem, 2vw, 1rem);
+}
+
+#signatures > .header > h1 {
+  color: #fff;
+  font-size: clamp(1rem, 5vw, 3rem);
+}
+
+#signatures > .grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 0 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+#signatures > .grid-container > .item-card {
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.25s ease;
+}
+#signatures > .grid-container > .item-card:hover {
+  transform: scale(1.02);
+}
+
+#signatures > .grid-container > .item-card > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  #signatures {
+    margin-top: 6rem;
+  }
+  #signatures > .grid-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

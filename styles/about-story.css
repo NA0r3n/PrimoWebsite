@@ -1,0 +1,35 @@
+#story {
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#scene-1,
+#scene-2,
+#scene-3,
+#scene-4 {
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 0.7s ease forwards;
+}
+#scene-1 {animation-delay:0.1s;}
+#scene-2 {animation-delay:0.25s;}
+#scene-3 {animation-delay:0.4s;}
+#scene-4 {animation-delay:0.55s;}
+
+#scene-1 img,
+#scene-2 img,
+#scene-3 img,
+#scene-4 img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(20px);}
+  to {opacity:1; transform:translateY(0);}
+}
