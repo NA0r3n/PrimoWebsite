@@ -1,11 +1,17 @@
 /* ================= NAVS.CSS ================= */
+:root {
+  --primo-dark: #141416;
+  --primo-gold: #ffcf40;
+  --primo-red: #ff4757;
+}
+
 header {
     background: #141416;
     box-shadow: 0px 4px 4px 2px #00000040;
-    position: sticky;
+    position: fixed;
     top: 0;
     height: 7rem;
-    opacity: 1;
+    width: 100%;
 
     display: flex;
     justify-content: center;
@@ -14,6 +20,13 @@ header {
     padding: 0 1.5rem;
     z-index: 999;
     box-sizing: border-box;
+    transition: background 0.5s cubic-bezier(0.43, 0.05, 0.17, 1), box-shadow 0.5s cubic-bezier(0.43, 0.05, 0.17, 1);
+}
+
+/* ✅ SCROLLED STATE (triggers via JS) */
+header.scrolled {
+    background: rgba(20, 20, 22, 0.96);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.55);
 }
 
 header > .nav-logo {
@@ -45,17 +58,34 @@ header > nav > ul {
     list-style-type: none;
 }
 
-/* ✅ ANCHOR / LINK STYLES (NEW) */
+/* ✅ ANCHOR / LINK STYLES + GOLD UNDERLINE */
 header > nav > ul > li > a {
     color: #FFFFFF;
     text-decoration: none;
     transition: color 0.2s ease, transform 0.2s ease;
     display: inline-block;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+header > nav > ul > li > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primo-gold);
+    transition: width 0.25s cubic-bezier(0.43, 0.05, 0.17, 1);
 }
 
 header > nav > ul > li > a:hover {
     transform: translateY(-3px);
-    color: #ff4757;
+    color: var(--primo-red);
+}
+
+header > nav > ul > li > a:hover::after {
+    width: 100%;
 }
 
 header > nav > ul li {

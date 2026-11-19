@@ -11,12 +11,15 @@
     <link rel="stylesheet" href="./styles/hero-home.css">
     <link rel="stylesheet" href="./styles/home-promos.css">
     <link rel="stylesheet" href="./styles/home-signatures.css">
+
+    <!-- Preload Hero Background -->
+    <link rel="preload" as="image" href="./graphics/site/hero-home_happy-all.jpeg" fetchpriority="high">
     
     <!-- Logo -->
     <link rel="shortcut icon" href="./graphics/brand/logo.ico" type="image/x-icon">
 
     <!-- Basic Icons -->
-     <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -30,7 +33,7 @@
           <li><a href="">FLAVORS</a></li>
           <li><a href="">MENU</a></li>
           <li><a href="">BRANCHES</a></li>
-          <li><a href="">FRANCHISE</a></li>
+          <li><a href="./franchise.html">FRANCHISE</a></li>
         </ul>
         <label for="menu" class="links-menu-wrapper">
           <span>
@@ -41,9 +44,16 @@
       </nav>
     </header>
 
-    <main>
+        <main id="home-tour">
+        <!-- Floating Click-to-Advance HUD -->
+        <div id="story-hud" aria-live="polite">
+          <span id="story-step-badge">1 / 5</span>
+          <span id="story-prompt-text">Click anywhere to explore</span>
+          <i class="bx bx-mouse-alt" id="story-prompt-icon"></i>
+        </div>
+
         <section id="hero">
-            <div class="item-1">
+            <div class="wrapper">
                 <span class="brand-alert">
                     <img src="./graphics/site/red-dot.svg" alt="red dot" class="red-dot">
                     THE 1ST & ORIGINAL UNLIMITED BUCKET CHICKEN WINGS IN METRO MANILA
@@ -57,7 +67,7 @@
                 <p class="message">Great food is meant to be shared, and our buckets are packed to bring everyone together. Come hungry, unbutton your jacket, and enjoy unlimited wings done right.</p>
 
                 <div id="btns-wrapper">
-                    <button class="primary">
+                    <button class="primary" onclick="document.getElementById('signatures').scrollIntoView({behavior: 'smooth'})">
                         EXPLORE 11 FLAVORS 
                         <i class="bx bx-chevrons-right"></i>
                     </button>
@@ -83,6 +93,7 @@
                 </div>
             </div>
         </section>
+
         <section id="promos">
           <div class="header">
             <h4 class="subtitle">Deliciously Affordable</h4>
@@ -91,23 +102,23 @@
           </div>
 
           <div class="posters">
-    <!-- LEFT COLUMN -->
+            <!-- LEFT COLUMN -->
             <div class="promo-column">
               <div class="promo-card">
-                <img src="./graphics/brand/sulit-promo.jpeg" alt="Sulit Ba Sulit Yan Promo">
+                <img src="./graphics/brand/sulit-promo.jpeg" alt="Sulit Ba Sulit Yan Promo" loading="lazy" decoding="async">
               </div>
               <div class="promo-card">
-                <img src="./graphics/brand/party-wings-promo.jpeg" alt="Party Wings Promo">
+                <img src="./graphics/brand/party-wings-promo.jpeg" alt="Party Wings Promo" loading="lazy" decoding="async">
               </div>
             </div>
 
-    <!-- RIGHT COLUMN -->
+            <!-- RIGHT COLUMN -->
             <div class="promo-column">
               <div class="promo-card">
-                <img src="./graphics/brand/barkada-promo.jpeg" alt="Barkada Promo">
+                <img src="./graphics/brand/barkada-promo.jpeg" alt="Barkada Promo" loading="lazy" decoding="async">
               </div>
               <div class="promo-card">
-                <img src="./graphics/brand/birthday-promo.jpeg" alt="Birthday Promo">
+                <img src="./graphics/brand/birthday-promo.jpeg" alt="Birthday Promo" loading="lazy" decoding="async">
               </div>
               <div class="cta">
                 <h3>WANT TO EXPLORE OUR DEALS?</h3>
@@ -125,55 +136,66 @@
             <h1>OUR 11 SIGNATURE FLAVORS</h1>
           </div>
           <div class="grid-container">
-            <!-- Row 1 -->
+            <!-- Row 1 -->
             <div class="item-card">
-              <img src="./graphics/brand/jack-daniels-sig.jpeg" alt="jack-daniels">
+              <img src="./graphics/brand/jack-daniels-sig.jpeg" alt="jack-daniels" loading="lazy" decoding="async">
             </div>
             <div class="item-card">
-              <img src="./graphics/brand/primos-buffalo-sig.jpeg" alt="primos-buffalo">
-            </div>
-          
-            <!-- Row 2 -->
-            <div class="item-card">
-              <img src="./graphics/brand/primos-sisig-sig.jpeg" alt="primos-sisig">
-            </div>
-            <div class="item-card">
-              <img src="./graphics/brand/salted-egg-sig.jpeg" alt="salted-egg">
+              <img src="./graphics/brand/primos-buffalo-sig.jpeg" alt="primos-buffalo" loading="lazy" decoding="async">
             </div>
           
-            <!-- Row 3 -->
+            <!-- Row 2 -->
             <div class="item-card">
-              <img src="./graphics/brand/cheese-bomb-sig.jpeg" alt="cheese-bomb">
+              <img src="./graphics/brand/primos-sisig-sig.jpeg" alt="primos-sisig" loading="lazy" decoding="async">
             </div>
             <div class="item-card">
-              <img src="./graphics/brand/garlic-parmesan-sig.jpeg" alt="garlic-parmesan">
-            </div>
-          
-            <!-- Row 4 -->
-            <div class="item-card">
-              <img src="./graphics/brand/honey-mustard-sig.jpeg" alt="honey-mustard">
-            </div>
-            <div class="item-card">
-              <img src="./graphics/brand/smokey-bbq-sig.jpeg" alt="smokey-bbq">
+              <img src="./graphics/brand/salted-egg-sig.jpeg" alt="salted-egg" loading="lazy" decoding="async">
             </div>
           
-            <!-- Row 5 -->
+            <!-- Row 3 -->
             <div class="item-card">
-              <img src="./graphics/brand/korean-yangnyeom-sig.jpeg" alt="korean-yangnyeom">
+              <img src="./graphics/brand/cheese-bomb-sig.jpeg" alt="cheese-bomb" loading="lazy" decoding="async">
             </div>
             <div class="item-card">
-              <img src="./graphics/brand/honey-sriracha-sig.jpeg" alt="honey-sriracha">
+              <img src="./graphics/brand/garlic-parmesan-sig.jpeg" alt="garlic-parmesan" loading="lazy" decoding="async">
             </div>
           
-            <!-- Row 6 (single card left side) -->
+            <!-- Row 4 -->
             <div class="item-card">
-              <img src="./graphics/brand/saltNpepper-sig.jpeg" alt="saltNpepper">
+              <img src="./graphics/brand/honey-mustard-sig.jpeg" alt="honey-mustard" loading="lazy" decoding="async">
+            </div>
+            <div class="item-card">
+              <img src="./graphics/brand/smokey-bbq-sig.jpeg" alt="smokey-bbq" loading="lazy" decoding="async">
+            </div>
+          
+            <!-- Row 5 -->
+            <div class="item-card">
+              <img src="./graphics/brand/korean-yangnyeom-sig.jpeg" alt="korean-yangnyeom" loading="lazy" decoding="async">
+            </div>
+            <div class="item-card">
+              <img src="./graphics/brand/honey-sriracha-sig.jpeg" alt="honey-sriracha" loading="lazy" decoding="async">
+            </div>
+          
+            <!-- Row 6 (single card left side) -->
+            <div class="item-card">
+              <img src="./graphics/brand/saltNpepper-sig.jpeg" alt="saltNpepper" loading="lazy" decoding="async">
             </div>
           </div>
         </section>
 
+        <!-- End-of-Page Indicator Before Footer -->
+        <div id="story-end-marker">
+          <span class="end-badge">END OF MENU HIGHLIGHTS</span>
+          <h3>Craving unlimited wings yet?</h3>
+          <p>You’ve seen our deals and all 11 signature sauces. Next up is the footer with our branch hotlines and hours.</p>
+          <a href="#site-footer" id="jump-to-footer-btn">
+            <span>Next: Footer</span>
+            <i class="bx bx-down-arrow-alt"></i>
+          </a>
+        </div>
     </main>
-    <footer>
+
+    <footer id="site-footer">
       <section id="wrapper">
         <div class="history">
           <h1 class="title">PRIMO'S UNLIMITED BUCKET WINGS</h1>
@@ -195,10 +217,9 @@
           </ul>
         </div>
       </section>
-    </footer>
+    </>
 
     <!-- Scripts -->
-    <script src="./scripts/script.js"></script>
-    
+    <script src="./scripts/script.js" defer></script>
 </body>
 </html>
