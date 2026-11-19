@@ -4,26 +4,193 @@
   box-sizing: border-box;
   overflow-x: clip;
   background-color: #0f0f12;
-  cursor: pointer;
   user-select: none;
+  color: #fff;
 }
 
-#scene-1,
-#scene-2,
-#scene-3,
-#scene-4 {
+#scenes {
+  position: relative;
   width: 100%;
   overflow: hidden;
-  background-color: #16161a;
+  background-color: var(--bg-red);
+  background-image:
+    linear-gradient(to right, var(--line-color) var(--line-thickness), transparent var(--line-thickness)),
+    linear-gradient(to bottom, var(--line-color) var(--line-thickness), transparent var(--line-thickness));
+  background-size: var(--grid-size) var(--grid-size);
 }
 
-#scene-1 img,
-#scene-2 img,
-#scene-3 img,
-#scene-4 img {
-  width: 100%;
+#scenes .scene-1 {
+  position: relative;
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+#scenes .scene h1 {
+  margin: 0;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  font-size: clamp(3rem, 11vw, 5rem);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+#scenes .scene .desc {
+  margin-top: 1.25rem;
+  max-width: 50rem;
+  font-size: clamp(1rem, 4vw, 2rem);
+  line-height: 1.35;
+  position: relative;
+  z-index: 2;
+}
+
+#scenes .scene h3 {
+  margin: 0;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+.bold, .bolder, .reg, .lighter {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Chicken wing positioned near bottom-right */
+#scenes .scene-1 .chicken-wing-hero {
+  position: absolute;
+  right: -1.5rem;
+  bottom: 0;
+  width: clamp(15rem, 50vw, 30rem);
   height: auto;
-  display: block;
+  aspect-ratio: auto;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scene 2: Editorial flow */
+#scenes .scene-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 72rem;
+  min-height: 80vh;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4.5rem;
+  gap: 1.5rem;
+  box-sizing: border-box;
+}
+
+#scenes .scene-2-top {
+  align-self: flex-start;
+  width: 100%;
+  max-width: 28rem;
+  position: relative;
+  z-index: 4;
+}
+
+#scenes .scene-2-top h3 {
+  text-transform: none;
+  font-size: clamp(1.8rem, 6.5vw, 3.2rem);
+  line-height: 1.05;
+}
+
+#scenes .scene-2-top h3 .bolder {
+  text-transform: uppercase;
+}
+
+#scenes .scene-2 .desc {
+  margin-top: 0.65rem;
+  max-width: 24rem;
+  width: 100%;
+  font-size: clamp(0.9rem, 2.8vw, 1.15rem);
+  line-height: 1.35;
+}
+
+/* Polaroid Collage */
+#scenes .scene-2 .pics {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 1.5rem;
+  min-height: clamp(16rem, 48vw, 24rem);
+}
+
+#scenes .scene-2 .pic {
+  flex: 0 0 auto;
+  width: clamp(7.5rem, 26vw, 14.5rem);
+  aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: center;
+  border: 4px solid #ffffff;
+  background-color: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+#scenes .scene-2 .pic-1 {
+  transform: translate(6%, 14%) rotate(10deg);
+  z-index: 2;
+}
+
+#scenes .scene-2 .pic-2 {
+  transform: translate(0%, -4%) rotate(-8deg);
+  z-index: 3;
+}
+
+#scenes .scene-2 .pic-3 {
+  transform: translate(-6%, -14%) rotate(5deg);
+  z-index: 1;
+}
+
+#scenes .scene-2-bottom {
+  align-self: flex-end;
+  text-align: right;
+  width: 100%;
+  max-width: 28rem;
+  position: relative;
+  z-index: 4;
+  margin-top: 1.5rem;
+}
+
+#scenes .scene-2-bottom .desc {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+  #scenes .scene-1 {
+    align-items: flex-start;
+  }
+
+  #scenes .scene-2 .pics {
+    min-height: 24rem;
+    margin: 1rem 0 2rem;
+  }
+
+  #scenes .scene-2 .pic {
+    width: clamp(11rem, 18vw, 15.5rem);
+  }
+
+  #scenes .scene-2 .pic-1 {
+    transform: translate(-8%, 16%) rotate(11deg);
+  }
+
+  #scenes .scene-2 .pic-2 {
+    transform: translate(0%, -4%) rotate(-9deg);
+  }
+
+  #scenes .scene-2 .pic-3 {
+    transform: translate(8%, -16%) rotate(5deg);
+  }
 }
