@@ -26,8 +26,7 @@
       <nav>
         <ul>
           <li><a href="./about.html">ABOUT</a></li>
-          <li><a href="">FLAVORS</a></li>
-          <li><a href="">MENU</a></li>
+          <li><a href="./menu.html">MENU</a></li>
           <li><a href="">BRANCHES</a></li>
           <li><a href="./franchise.html">FRANCHISE</a></li>
         </ul>
@@ -38,8 +37,47 @@
           </span>
         </label>
       </nav>
+      <button id="add-to-cart-btn">
+          <span>
+              <img src="./graphics/site/form-icon.svg" alt="">
+          </span>
+          <h3>MEAL PLANNER</h3>
+          <span>
+              <img src="./graphics/site/circle-indicator.svg" alt="">
+          </span>
+      </button>
     </header>
+    <aside id="craving-planner" aria-label="Your Craving Planner">
+        <div class="header">
+            <div class="title-group">
+                <span class="subtitle">DINE-IN ORDER GUIDE</span>
+                <h2 class="title">YOUR CRAVING PLANNER</h2>
+            </div>
+            <button type="button" class="close-btn" aria-label="Close planner">X</button>
+        </div>
 
+        <div class="body">
+            <div class="empty-state">
+                <svg class="bucket-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M16 7a4 4 0 0 0-8 0H4l1.6 12.2A2 2 0 0 0 7.58 21h8.84a2 2 0 0 0 1.98-1.8L20 7h-4zm-6 0a2 2 0 1 1 4 0h-4z" />
+                </svg>
+                <h3>Your bucket planner is empty.</h3>
+                <p>Tap “+ Add” on any Unli Deal, Busolve Meal, Fries, or Flavor to estimate your group bill.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="total-row">
+                <span class="total-label">Estimated Total:</span>
+                <span class="total-amount">₱ 0</span>
+            </div>
+            <div class="actions">
+                <button type="button" class="btn-clear">CLEAR</button>
+                <button type="button" class="btn-copy">COPY ORDER SUMMARY</button>
+            </div>
+        </div>
+    </aside>
     <main>
       <section id="story">
         <div id="scenes">

@@ -8,11 +8,16 @@
 
 #promos > .header {
   font-family: Outfit, sans-serif;
-  margin-top: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 2.5rem;
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 #promos > .header > h4 {
@@ -25,6 +30,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  margin-top: 2rem;
 }
 
 #promos > .header > h2.title {
@@ -37,19 +43,18 @@
 
 #promos > .header > h4.desc {
   color: #ffffff80;
-  text-align: center;
-  max-width: 650px;
-  margin: 0 auto 2.5rem;
+  max-width: min(650px, 100%);
   font-weight: 600;
   line-height: 1.5;
+  margin: 0.5rem 0 0;
 }
 
 #promos > .posters {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem; /* Slightly cleaner separation than 0.25rem */
+  gap: 1rem;
   padding: 0 1.25rem;
-  max-width: 58rem; /* Changed from 94rem (1504px) to 58rem (~928px) so posters aren't giant */
+  max-width: 58rem;
   margin: 0 auto;
   align-items: start;
 }
@@ -115,9 +120,14 @@
 }
 
 @media (max-width: 768px) {
+  #promos > .header {
+    margin-top: 3rem;
+    margin-bottom: 1.75rem;
+  }
+
   #promos > .posters {
     grid-template-columns: 1fr;
-    max-width: 26rem; /* Caps mobile poster width at ~416px so it fits comfortably on screen */
+    max-width: 26rem;
     gap: 1.25rem;
   }
 

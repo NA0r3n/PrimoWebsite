@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,38 +15,77 @@
 
     <!-- Preload Hero Background -->
     <link rel="preload" as="image" href="./graphics/site/hero-home_happy-all.jpeg" fetchpriority="high">
-    
+
     <!-- Logo -->
     <link rel="shortcut icon" href="./graphics/brand/logo.ico" type="image/x-icon">
 
     <!-- Basic Icons -->
     <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
 </head>
+
 <body>
     <header>
-      <a href="./index.html">
-        <img src="./graphics/brand/logo.svg" alt="Primo's logo" class="nav-logo">
-      </a>
-      <input type="checkbox" name="menu" id="menu">
-      <nav>
-        <ul>
-          <li><a href="./about.html">ABOUT</a></li>
-          <li><a href="">FLAVORS</a></li>
-          <li><a href="">MENU</a></li>
-          <li><a href="">BRANCHES</a></li>
-          <li><a href="./franchise.html">FRANCHISE</a></li>
-        </ul>
-        <label for="menu" class="links-menu-wrapper">
-          <span>
-            Menu
-            <i class="bx bx-menu hamburger-btn"></i>
-          </span>
-        </label>
-      </nav>
+        <a href="./index.html">
+            <img src="./graphics/brand/logo.svg" alt="Primo's logo" class="nav-logo">
+        </a>
+        <input type="checkbox" name="menu" id="menu">
+        <nav>
+            <ul>
+                <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./menu.html">MENU</a></li>
+                <li><a href="">BRANCHES</a></li>
+                <li><a href="./franchise.html">FRANCHISE</a></li>
+            </ul>
+            <label for="menu" class="links-menu-wrapper">
+                <span>
+                    Menu
+                    <i class="bx bx-menu hamburger-btn"></i>
+                </span>
+            </label>
+        </nav>
+        <button id="add-to-cart-btn">
+            <span>
+                <img src="./graphics/site/form-icon.svg" alt="">
+            </span>
+            <h3>MEAL PLANNER</h3>
+            <span>
+                <img src="./graphics/site/circle-indicator.svg" alt="">
+            </span>
+        </button>
     </header>
+    <aside id="craving-planner" aria-label="Your Craving Planner">
+        <div class="header">
+            <div class="title-group">
+                <span class="subtitle">DINE-IN ORDER GUIDE</span>
+                <h2 class="title">YOUR CRAVING PLANNER</h2>
+            </div>
+            <button type="button" class="close-btn" aria-label="Close planner">X</button>
+        </div>
 
-        <main id="home-tour">
-          <section id="hero">
+        <div class="body">
+            <div class="empty-state">
+                <svg class="bucket-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M16 7a4 4 0 0 0-8 0H4l1.6 12.2A2 2 0 0 0 7.58 21h8.84a2 2 0 0 0 1.98-1.8L20 7h-4zm-6 0a2 2 0 1 1 4 0h-4z" />
+                </svg>
+                <h3>Your bucket planner is empty.</h3>
+                <p>Tap “+ Add” on any Unli Deal, Busolve Meal, Fries, or Flavor to estimate your group bill.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="total-row">
+                <span class="total-label">Estimated Total:</span>
+                <span class="total-amount">₱ 0</span>
+            </div>
+            <div class="actions">
+                <button type="button" class="btn-clear">CLEAR</button>
+                <button type="button" class="btn-copy">COPY ORDER SUMMARY</button>
+            </div>
+        </div>
+    </aside>
+    <main id="home-tour">
+        <section id="hero">
             <div class="wrapper">
                 <span class="brand-alert">
                     <img src="./graphics/site/red-dot.svg" alt="red dot" class="red-dot">
@@ -57,11 +97,13 @@
                 <h3 class="tagline">
                     “Sulit. Sarap. Saya!”
                 </h3>
-                <p class="message">Great food is meant to be shared, and our buckets are packed to bring everyone together. Come hungry, unbutton your jacket, and enjoy unlimited wings done right.</p>
+                <p class="message">Great food is meant to be shared, and our buckets are packed to bring everyone
+                    together. Come hungry, unbutton your jacket, and enjoy unlimited wings done right.</p>
 
                 <div id="btns-wrapper">
-                    <button class="primary" onclick="document.getElementById('signatures').scrollIntoView({behavior: 'smooth'})">
-                        EXPLORE 11 FLAVORS 
+                    <button class="primary"
+                        onclick="document.getElementById('signatures').scrollIntoView({behavior: 'smooth'})">
+                        EXPLORE 11 FLAVORS
                         <i class="bx bx-chevrons-right"></i>
                     </button>
                     <button class="secondary">
@@ -88,120 +130,134 @@
         </section>
 
         <section id="promos">
-          <div class="header">
-            <h4 class="subtitle">Deliciously Affordable</h4>
-            <h2 class="title">PRIMO'S DEALS</h2>
-            <h4 class="desc">Choose from our crowd favorite unlimited wing promos, solo-meal sets, or mouthwatering side dishes.</h4>
-          </div>
-
-          <div class="posters">
-            <!-- LEFT COLUMN -->
-            <div class="promo-column">
-              <div class="promo-card">
-                <img src="./graphics/brand/sulit-promo.jpeg" alt="Sulit Ba Sulit Yan Promo" loading="lazy" decoding="async">
-              </div>
-              <div class="promo-card">
-                <img src="./graphics/brand/party-wings-promo.jpeg" alt="Party Wings Promo" loading="lazy" decoding="async">
-              </div>
+            <div class="header">
+                <h4 class="subtitle">Deliciously Affordable</h4>
+                <h2 class="title">PRIMO'S DEALS</h2>
+                <h4 class="desc">Choose from our crowd favorite unlimited wing promos, solo-meal sets, or mouthwatering
+                    side dishes.</h4>
             </div>
 
-            <!-- RIGHT COLUMN -->
-            <div class="promo-column">
-              <div class="promo-card">
-                <img src="./graphics/brand/barkada-promo.jpeg" alt="Barkada Promo" loading="lazy" decoding="async">
-              </div>
-              <div class="promo-card">
-                <img src="./graphics/brand/birthday-promo.jpeg" alt="Birthday Promo" loading="lazy" decoding="async">
-              </div>
-              <div class="cta">
-                <h3>WANT TO EXPLORE OUR DEALS?</h3>
-                <button>
-                  VISIT US
-                </button>
-              </div>
+            <div class="posters">
+                <!-- LEFT COLUMN -->
+                <div class="promo-column">
+                    <div class="promo-card">
+                        <img src="./graphics/brand/sulit-promo.jpeg" alt="Sulit Ba Sulit Yan Promo" loading="lazy"
+                            decoding="async">
+                    </div>
+                    <div class="promo-card">
+                        <img src="./graphics/brand/party-wings-promo.jpeg" alt="Party Wings Promo" loading="lazy"
+                            decoding="async">
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="promo-column">
+                    <div class="promo-card">
+                        <img src="./graphics/brand/barkada-promo.jpeg" alt="Barkada Promo" loading="lazy"
+                            decoding="async">
+                    </div>
+                    <div class="promo-card">
+                        <img src="./graphics/brand/birthday-promo.jpeg" alt="Birthday Promo" loading="lazy"
+                            decoding="async">
+                    </div>
+                    <div class="cta">
+                        <h3>WANT TO EXPLORE OUR DEALS?</h3>
+                        <button>
+                            VISIT US
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
         </section>
 
         <section id="signatures">
-          <div class="header">
-            <h6>HOMEMADE PREMIUM SAUCES</h6>
-            <h1>OUR 11 SIGNATURE FLAVORS</h1>
-          </div>
-          <div class="grid-container">
-            <!-- Row 1 -->
-            <div class="item-card">
-              <img src="./graphics/brand/jack-daniels-sig.jpeg" alt="jack-daniels" loading="lazy" decoding="async">
+            <div class="header">
+                <h6>HOMEMADE PREMIUM SAUCES</h6>
+                <h1>OUR 11 SIGNATURE FLAVORS</h1>
             </div>
-            <div class="item-card">
-              <img src="./graphics/brand/primos-buffalo-sig.jpeg" alt="primos-buffalo" loading="lazy" decoding="async">
+            <div class="grid-container">
+                <!-- Row 1 -->
+                <div class="item-card">
+                    <img src="./graphics/brand/jack-daniels-sig.jpeg" alt="jack-daniels" loading="lazy"
+                        decoding="async">
+                </div>
+                <div class="item-card">
+                    <img src="./graphics/brand/primos-buffalo-sig.jpeg" alt="primos-buffalo" loading="lazy"
+                        decoding="async">
+                </div>
+
+                <!-- Row 2 -->
+                <div class="item-card">
+                    <img src="./graphics/brand/primos-sisig-sig.jpeg" alt="primos-sisig" loading="lazy"
+                        decoding="async">
+                </div>
+                <div class="item-card">
+                    <img src="./graphics/brand/salted-egg-sig.jpeg" alt="salted-egg" loading="lazy" decoding="async">
+                </div>
+
+                <!-- Row 3 -->
+                <div class="item-card">
+                    <img src="./graphics/brand/cheese-bomb-sig.jpeg" alt="cheese-bomb" loading="lazy" decoding="async">
+                </div>
+                <div class="item-card">
+                    <img src="./graphics/brand/garlic-parmesan-sig.jpeg" alt="garlic-parmesan" loading="lazy"
+                        decoding="async">
+                </div>
+
+                <!-- Row 4 -->
+                <div class="item-card">
+                    <img src="./graphics/brand/honey-mustard-sig.jpeg" alt="honey-mustard" loading="lazy"
+                        decoding="async">
+                </div>
+                <div class="item-card">
+                    <img src="./graphics/brand/smokey-bbq-sig.jpeg" alt="smokey-bbq" loading="lazy" decoding="async">
+                </div>
+
+                <!-- Row 5 -->
+                <div class="item-card">
+                    <img src="./graphics/brand/korean-yangnyeom-sig.jpeg" alt="korean-yangnyeom" loading="lazy"
+                        decoding="async">
+                </div>
+                <div class="item-card">
+                    <img src="./graphics/brand/honey-sriracha-sig.jpeg" alt="honey-sriracha" loading="lazy"
+                        decoding="async">
+                </div>
+
+                <!-- Row 6 (single card left side) -->
+                <div class="item-card">
+                    <img src="./graphics/brand/saltNpepper-sig.jpeg" alt="saltNpepper" loading="lazy" decoding="async">
+                </div>
             </div>
-          
-            <!-- Row 2 -->
-            <div class="item-card">
-              <img src="./graphics/brand/primos-sisig-sig.jpeg" alt="primos-sisig" loading="lazy" decoding="async">
-            </div>
-            <div class="item-card">
-              <img src="./graphics/brand/salted-egg-sig.jpeg" alt="salted-egg" loading="lazy" decoding="async">
-            </div>
-          
-            <!-- Row 3 -->
-            <div class="item-card">
-              <img src="./graphics/brand/cheese-bomb-sig.jpeg" alt="cheese-bomb" loading="lazy" decoding="async">
-            </div>
-            <div class="item-card">
-              <img src="./graphics/brand/garlic-parmesan-sig.jpeg" alt="garlic-parmesan" loading="lazy" decoding="async">
-            </div>
-          
-            <!-- Row 4 -->
-            <div class="item-card">
-              <img src="./graphics/brand/honey-mustard-sig.jpeg" alt="honey-mustard" loading="lazy" decoding="async">
-            </div>
-            <div class="item-card">
-              <img src="./graphics/brand/smokey-bbq-sig.jpeg" alt="smokey-bbq" loading="lazy" decoding="async">
-            </div>
-          
-            <!-- Row 5 -->
-            <div class="item-card">
-              <img src="./graphics/brand/korean-yangnyeom-sig.jpeg" alt="korean-yangnyeom" loading="lazy" decoding="async">
-            </div>
-            <div class="item-card">
-              <img src="./graphics/brand/honey-sriracha-sig.jpeg" alt="honey-sriracha" loading="lazy" decoding="async">
-            </div>
-          
-            <!-- Row 6 (single card left side) -->
-            <div class="item-card">
-              <img src="./graphics/brand/saltNpepper-sig.jpeg" alt="saltNpepper" loading="lazy" decoding="async">
-            </div>
-          </div>
         </section>
     </main>
 
     <footer id="site-footer">
-      <section id="wrapper">
-        <div class="history">
-          <h1 class="title">PRIMO'S UNLIMITED BUCKET WINGS</h1>
-          <h4 class="desc">The First and Original Unlimited Bucket Wings in Metro Manila. High quality homemade sauces and crunchy fried wings.</h4>
-        </div>
-        <div class="contact">
-          <h1 class="title">BRANCH HOTLINE</h1>
-          <ul>
-            <li>Taguig: +63 954 315 9849</li>
-            <li>Batangas: +63 956 351 1173</li>
-            <li>primosdinerph@gmail.com</li>
-          </ul>
-        </div>
-        <div class="service">
-          <h1 class="title">OPERATING HOURS</h1>
-          <ul>
-            <li>Dine-in & Delivery Services</li>
-            <li>Monday - Sunday: 11:00 AM - 10:00 PM</li>
-          </ul>
-        </div>
-      </section>
-    </>
-
+        <section id="wrapper">
+            <div class="history">
+                <h1 class="title">PRIMO'S UNLIMITED BUCKET WINGS</h1>
+                <h4 class="desc">The First and Original Unlimited Bucket Wings in Metro Manila. High quality homemade
+                    sauces and crunchy fried wings.</h4>
+            </div>
+            <div class="contact">
+                <h1 class="title">BRANCH HOTLINE</h1>
+                <ul>
+                    <li>Taguig: +63 954 315 9849</li>
+                    <li>Batangas: +63 956 351 1173</li>
+                    <li>primosdinerph@gmail.com</li>
+                </ul>
+            </div>
+            <div class="service">
+                <h1 class="title">OPERATING HOURS</h1>
+                <ul>
+                    <li>Dine-in & Delivery Services</li>
+                    <li>Monday - Sunday: 11:00 AM - 10:00 PM</li>
+                </ul>
+            </div>
+        </section>
+    </footer>
     <!-- Scripts -->
+
     <script src="./scripts/script.js" defer></script>
 </body>
+
 </html>
