@@ -7,7 +7,7 @@
 
     <!-- Styling -->
     <link rel="stylesheet" href="./styles/global.css">
-    <link rel="stylesheet" href="./styles/navs.css"> 
+    <link rel="stylesheet" href="./styles/navs.css">
     <link rel="stylesheet" href="./styles/about-story.css">
 
     <!-- Logo -->
@@ -19,7 +19,7 @@
 
 <body>
     <header>
-      <a href="./index.html">
+      <a href="./index.html" class="logo-link">
         <img src="./graphics/brand/logo.svg" alt="Primo's logo" class="nav-logo">
       </a>
       <input type="checkbox" name="menu" id="menu">
@@ -27,7 +27,7 @@
         <ul>
           <li><a href="./about.html">ABOUT</a></li>
           <li><a href="./menu.html">MENU</a></li>
-          <li><a href="">BRANCHES</a></li>
+          <li><a href="./branches.html">BRANCHES</a></li>
           <li><a href="./franchise.html">FRANCHISE</a></li>
         </ul>
         <label for="menu" class="links-menu-wrapper">
@@ -37,7 +37,7 @@
           </span>
         </label>
       </nav>
-      <button id="add-to-cart-btn">
+      <button type="button" id="add-to-cart-btn">
           <span>
               <img src="./graphics/site/form-icon.svg" alt="">
           </span>
@@ -47,6 +47,7 @@
           </span>
       </button>
     </header>
+
     <aside id="craving-planner" aria-label="Your Craving Planner">
         <div class="header">
             <div class="title-group">
@@ -78,16 +79,28 @@
             </div>
         </div>
     </aside>
+
     <main>
       <section id="story">
         <div id="scenes">
-          <div class="scene scene-1">
-            <h1 class="bolder">MORE THAN JUST
-            <span class="bold serif">WINGS.</span></h1>
-            <p class="desc reg">Get to know the story behind Primo's Bucket Wings.</p>
-            <img src="./graphics/site/yummy-chicken-wing.webp" alt="yummy chicken wings" class="chicken-wing-hero" fetchpriority="high">
+          <!-- Scene 1: Hero -->
+          <div class="scene scene-1" id="scene-1">
+            <div class="scene-1-copy">
+              <h1 class="bolder">MORE THAN JUST<br><span class="bold serif">WINGS.</span></h1>
+              <p class="desc reg">Get to know the story behind Primo's Bucket Wings.</p>
+            </div>
+
+            <img
+              src="./graphics/site/yummy-chicken-wing.webp"
+              alt="Wing Feature Image"
+              class="media-slot wing-hero-slot"
+              data-slot="wing-hero"
+              loading="eager"
+            >
           </div>
-          <div class="scene scene-2">
+
+          <!-- Scene 2: Diner to Unlimited Bucket Wings + Polaroid Row -->
+          <div class="scene scene-2" id="scene-2">
             <div class="scene-2-top">
               <h3>
                 <span class="bolder">FROM</span>
@@ -98,22 +111,83 @@
               </p>
             </div>
 
-            <div class="pics">
-            <img src="./graphics/site/store-selfie-1.webp" alt="store-selfie-1" class="pic pic-1" loading="lazy">
-            <img src="./graphics/site/store-selfie-2.webp" alt="store-selfie-2" class="pic pic-2" loading="lazy">
-            <img src="./graphics/site/boy-cashier.webp" alt="boy-cashier" class="pic pic-3" loading="lazy">
-          </div>
-          
+            <div class="polaroid-row">
+              <div class="polaroid-card tilt-left">
+                <img src="./graphics/site/store-selfie-1.webp" alt="Diner Photo 1" class="polaroid-img" data-slot="diner-photo-1" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-right">
+                <img src="./graphics/site/store-selfie-2.webp" alt="Diner Photo 2" class="polaroid-img" data-slot="diner-photo-2" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-slight">
+                <img src="./graphics/site/boy-cashier.webp" alt="Diner Photo 3" class="polaroid-img" data-slot="diner-photo-3" loading="lazy">
+              </div>
+            </div>
+
             <div class="scene-2-bottom">
-            <p class="desc light">A new chapter, with the same heart behind every serving.</p>
-            <h3>
-              <span class="bolder">TO UNLIMITED<br>BUCKET WINGS.</span>
-            </h3>
-          </div>
+              <p class="desc light">A new chapter, with the same heart behind every serving.</p>
+              <h3>
+                <span class="bolder">TO UNLIMITED<br>BUCKET WINGS.</span>
+              </h3>
+            </div>
           </div>
 
-          <div class="scene scene-3"></div>
-          <div class="scene scene-4"></div>
+          <!-- Scene 3: A Name That Feels Like Family -->
+          <div class="scene scene-3" id="scene-3">
+            <h2 class="scene-3-heading bolder">A NAME THAT<br>FEELS LIKE FAMILY.</h2>
+
+            <div class="scene-3-grid">
+              <img src="./graphics/site/storefront.webp" alt="Storefront / Diner Image" class="media-slot storefront-slot" data-slot="storefront-photo" loading="lazy">
+              <p class="scene-3-copy light">
+                In Masbateño, <strong>Primo</strong> is a term of endearment for a friend who feels like family.
+                <br><br>
+                And that's what Primo's is all about: bringing people together over good food, shared laughter, and moments worth remembering.
+              </p>
+            </div>
+
+            <img src="./graphics/site/crew.webp" alt="Crew / Team Photo" class="media-slot crew-slot" data-slot="crew-photo" loading="lazy">
+          </div>
+
+          <!-- Scene 4: More Than Wings / It's About Being Together -->
+          <div class="scene scene-4" id="scene-4">
+            <div class="polaroid-scatter top-scatter">
+              <div class="polaroid-card tilt-left sm">
+                <img src="./graphics/site/gather-1.webp" alt="Gathering Photo 1" class="polaroid-img" data-slot="gather-1" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-right sm">
+                <img src="./graphics/site/gather-2.webp" alt="Gathering Photo 2" class="polaroid-img" data-slot="gather-2" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-slight sm">
+                <img src="./graphics/site/gather-3.webp" alt="Gathering Photo 3" class="polaroid-img" data-slot="gather-3" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-left sm">
+                <img src="./graphics/site/gather-4.webp" alt="Gathering Photo 4" class="polaroid-img" data-slot="gather-4" loading="lazy">
+              </div>
+            </div>
+
+            <div class="scene-4-center">
+              <h2 class="scene-4-title bolder">MORE THAN WINGS.</h2>
+              <p class="scene-4-copy light">
+                To us, good food is even better when <strong>shared</strong>. Whether it's a meal with family, a catch-up with friends, or a spontaneous food trip, there's always room for another bucket.
+              </p>
+            </div>
+
+            <div class="polaroid-scatter bottom-scatter">
+              <div class="polaroid-card tilt-right sm">
+                <img src="./graphics/site/gather-5.webp" alt="Gathering Photo 5" class="polaroid-img" data-slot="gather-5" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-left sm">
+                <img src="./graphics/site/gather-6.webp" alt="Gathering Photo 6" class="polaroid-img" data-slot="gather-6" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-slight sm">
+                <img src="./graphics/site/gather-7.webp" alt="Gathering Photo 7" class="polaroid-img" data-slot="gather-7" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-right sm">
+                <img src="./graphics/site/gather-8.webp" alt="Gathering Photo 8" class="polaroid-img" data-slot="gather-8" loading="lazy">
+              </div>
+            </div>
+
+            <h2 class="scene-4-footer-title bolder">IT'S ABOUT BEING<br>TOGETHER.</h2>
+          </div>
         </div>
       </section>
     </main>
@@ -135,7 +209,7 @@
         <div class="service">
           <h1 class="title">OPERATING HOURS</h1>
           <ul>
-            <li>Dine-in & Delivery Services</li>
+            <li>Dine-in &amp; Delivery Services</li>
             <li>Monday - Sunday: 11:00 AM - 10:00 PM</li>
           </ul>
         </div>
