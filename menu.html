@@ -84,6 +84,43 @@
         </div>
 
         <div class="footer">
+            <form id="planner-submit-form" class="planner-order-form" novalidate>
+                <div class="planner-form-row">
+                    <input
+                        type="text"
+                        id="customer-name"
+                        name="customerName"
+                        class="planner-input"
+                        placeholder="Your Name"
+                        required
+                    >
+                    <input
+                        type="text"
+                        id="customer-contact"
+                        name="customerContact"
+                        class="planner-input"
+                        placeholder="Mobile / Table #"
+                        required
+                    >
+                </div>
+                <div class="planner-form-row">
+                    <select id="order-type" name="orderType" class="planner-input" aria-label="Order Type">
+                        <option value="Dine-In">Dine-In</option>
+                        <option value="Pickup">Pickup</option>
+                        <option value="Delivery">Delivery</option>
+                    </select>
+                    <input
+                        type="text"
+                        id="order-notes"
+                        name="orderNotes"
+                        class="planner-input"
+                        placeholder="Notes (e.g. extra dip)"
+                    >
+                </div>
+                <button type="submit" class="btn-submit-order">SUBMIT ORDER GUIDE</button>
+                <p class="planner-submit-status" aria-live="polite"></p>
+            </form>
+
             <div class="total-row">
                 <span class="total-label">Estimated Total:</span>
                 <span class="total-amount">₱ 0</span>

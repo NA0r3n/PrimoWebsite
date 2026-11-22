@@ -5,7 +5,8 @@ const PARALLAX_SPEED = 0.35;
 
 const STORAGE_KEY_ORDERS = "primos_craving_planner_orders_v1";
 const STORAGE_KEY_SORT = "primos_craving_planner_sort_v1";
-const PRIMO_FB_PAGE_URL = "https://www.facebook.com/PrimosUnlimited"; // Replace with Primo's FB Page or m.me link
+const PRIMO_FB_PAGE_URL = "https://www.facebook.com/PrimosUnlimited";
+const ORDER_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbw_rcOvlSwvGlr5QNUWJ4vTbMprz11AwymsQzeFht98pk6Wk5UiXpVNrcSol0NduXCEfQ/exec";
 
 const SIGNATURE_FLAVORS = [
   "Jack Daniel's",
@@ -133,6 +134,9 @@ function initCravingPlanner() {
   const clearBtn = cravingPlanner.querySelector(".btn-clear");
   const copyBtn = cravingPlanner.querySelector(".btn-copy");
   const fbSendBtn = cravingPlanner.querySelector(".btn-fb-send");
+  const orderForm = cravingPlanner.querySelector("#planner-submit-form");
+  const submitBtn = cravingPlanner.querySelector(".btn-submit-order");
+  const statusEl = cravingPlanner.querySelector(".planner-submit-status");
   const addButtons = document.querySelectorAll(".add-planner-btn");
 
   let itemsContainer = plannerBody ? plannerBody.querySelector(".planner-items") : null;
@@ -193,6 +197,12 @@ function initCravingPlanner() {
   }
 
   const formatPeso = (amount) => `₱${Number(amount || 0).toLocaleString("en-PH")}`;
+
+  function setStatus(message, isError = false) {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    statusEl.classList.toggle("is-error", isError);
+  }
 
   function getSortedOrders() {
     const list = [...orders];
@@ -471,6 +481,7 @@ function initCravingPlanner() {
       orders = [];
       saveOrders(orders);
       resetPicker();
+      setStatus("");
       renderOrders();
     });
   }
@@ -486,6 +497,87 @@ function initCravingPlanner() {
         setTimeout(() => {
           copyBtn.textContent = originalText;
         }, 1200);
+      }
+    });
+  }
+
+  if (orderForm) {
+    orderForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!orders.length) {
+        setStatus("Add at least one item to your planner first.", true);
+        return;
+      }
+
+      const nameInput = orderForm.querySelector("#customer-name");
+      const contactInput = orderForm.querySelector("#customer-contact");
+      const typeSelect = orderForm.querySelector("#order-type");
+      const notesInput = orderForm.querySelector("#order-notes");
+
+      const customerName = nameInput ? nameInput.value.trim() : "";
+      const customerContact = contactInput ? contactInput.value.trim() : "";
+      const orderType = typeSelect ? typeSelect.value : "Dine-In";
+      const orderNotes = notesInput ? notesInput.value.trim() : "";
+
+      if (!customerName || !customerContact) {
+        setStatus("Please enter your name and mobile or table number.", true);
+        return;
+      }
+
+      const sorted = getSortedOrders();
+      const total = sorted.reduce((sum, item) => sum + item.price, 0);
+
+      const payload = {
+        submittedAt: new Date().toISOString(),
+        branch: "Comembo",
+        customerName,
+        customerContact,
+        orderType,
+        orderNotes,
+        total,
+        summaryText: buildOrderSummaryText(),
+        items: sorted.map((item) => ({
+          id: item.id,
+          title: item.title,
+          subheader: item.subheader,
+          price: item.price,
+          meta: item.meta,
+          flavors: item.flavors || []
+        }))
+      };
+
+      if (!ORDER_WEBHOOK_URL || ORDER_WEBHOOK_URL.includes("YOUR_DEPLOYMENT_ID")) {
+        await copySummaryToClipboard(payload.summaryText);
+        setStatus("No endpoint set yet — summary copied to clipboard instead.");
+        return;
+      }
+
+      if (submitBtn) submitBtn.disabled = true;
+      setStatus("Sending order guide...");
+
+      try {
+        const response = await fetch(ORDER_WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+
+        orders = [];
+        saveOrders(orders);
+        resetPicker();
+        renderOrders();
+        orderForm.reset();
+        setStatus("Order guide sent! Our team has your list.");
+      } catch {
+        await copySummaryToClipboard(payload.summaryText);
+        setStatus("Couldn't reach server — summary copied so you can still share it.", true);
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
       }
     });
   }
