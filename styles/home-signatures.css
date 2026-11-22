@@ -1,51 +1,46 @@
+/* ================= SIGNATURE FLAVORS ================= */
 #signatures {
   font-family: Outfit, sans-serif;
   font-weight: 800;
   width: 100%;
   box-sizing: border-box;
+  padding-top: 2.5rem;
   position: relative;
-  bottom: 5rem;
-  margin-bottom: -5rem;
+  z-index: 1;
 }
 
 #signatures > .header {
   width: 100%;
   max-width: 75rem;
-  margin: 0 auto 1.25rem auto;
+  margin: 0 auto 1.75rem auto;
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   box-sizing: border-box;
-  position: relative;
-  top: 5rem;
+  position: static;
+  top: auto;
 }
 
 #signatures > .header > h6 {
-  color: #ff0000;
+  color: #ff1e1e;
   font-size: clamp(0.75rem, 1.5vw, 0.95rem);
-  letter-spacing: 0.04em;
+  font-weight: 800;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin: 0 0 0.25rem 0;
+  margin: 0 0 0.35rem 0;
   padding: 0;
-  width: auto;
-  position: static;
-  transform: none;
 }
 
 #signatures > .header > h1 {
-  color: #fff;
+  color: #ffffff;
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 800;
   line-height: 1.15;
   margin: 0;
   padding: 0;
-  width: auto;
-  max-width: none;
   white-space: nowrap;
-  position: static;
-  transform: none;
 }
 
 #signatures > .grid-container {
@@ -54,11 +49,9 @@
   gap: 1.25rem;
   padding: 0 1rem;
   width: 100%;
-  box-sizing: border-box;
   max-width: 75rem;
   margin: 0 auto;
-  position: static;
-  top: auto;
+  box-sizing: border-box;
 }
 
 #signatures > .grid-container > .item-card {
@@ -71,14 +64,16 @@
 
 #signatures > .grid-container > .item-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
 }
 
 #signatures > .grid-container > .item-card > img {
   display: block;
   width: 100%;
   height: auto;
+  max-width: 100%;
   object-fit: cover;
+  opacity: 1;
 }
 
 @media (max-width: 1024px) {
@@ -90,13 +85,11 @@
 
 @media (max-width: 768px) {
   #signatures {
-    bottom: 2.5rem;
-    margin-bottom: -2.5rem;
+    padding-top: 2rem;
   }
 
   #signatures > .header {
-    top: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     padding: 0 0.75rem;
   }
 
