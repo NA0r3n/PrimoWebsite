@@ -9,9 +9,8 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-#franchise-page *,
-#story-hud,
-#story-hud * {
+#franchise-page *
+{
   -webkit-tap-highlight-color: transparent;
 }
 

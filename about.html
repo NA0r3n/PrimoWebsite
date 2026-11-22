@@ -41,37 +41,41 @@
     </header>
 
     <main>
-      <section id="story" aria-label="Interactive Story Presentation">
-        <!-- Floating Click-to-Advance HUD -->
-        <div id="story-hud" aria-live="polite">
-          <span id="story-step-badge">1 / 7</span>
-          <span id="story-prompt-text">Click anywhere to continue</span>
-          <i class="bx bx-mouse-alt" id="story-prompt-icon"></i>
-        </div>
+      <section id="story">
+        <div id="scenes">
+          <div class="scene scene-1">
+            <h1 class="bolder">MORE THAN JUST
+            <span class="bold serif">WINGS.</span></h1>
+            <p class="desc reg">Get to know the story behind Primo's Bucket Wings.</p>
+            <img src="./graphics/site/yummy-chicken-wing.webp" alt="yummy chicken wings" class="chicken-wing-hero" fetchpriority="high">
+          </div>
+          <div class="scene scene-2">
+            <div class="scene-2-top">
+              <h3>
+                <span class="bolder">FROM</span>
+                <span class="bold serif">Primo's Diner</span>
+              </h3>
+              <p class="desc light">
+                As Primo's grew, so did our vision. We evolved from a humble diner into a destination for flavorful wings and satisfying meals.
+              </p>
+            </div>
 
-        <div id="scene-1">
-          <img src="./graphics/site/about-1.jpeg" alt="More than just wings" fetchpriority="high">
-        </div>
-        <div id="scene-2">
-          <img src="./graphics/site/about-2.jpeg" alt="From Primo's Diner to Unlimited Bucket Wings">
-        </div>
-        <div id="scene-3">
-          <img src="./graphics/site/about-3.jpeg" alt="A name that feels like family">
-        </div>
-        <div id="scene-4">
-          <img src="./graphics/site/about-4.jpeg" alt="More than wings — it's about being together">
-        </div>
+            <div class="pics">
+            <img src="./graphics/site/store-selfie-1.webp" alt="store-selfie-1" class="pic pic-1" loading="lazy">
+            <img src="./graphics/site/store-selfie-2.webp" alt="store-selfie-2" class="pic pic-2" loading="lazy">
+            <img src="./graphics/site/boy-cashier.webp" alt="boy-cashier" class="pic pic-3" loading="lazy">
+          </div>
+          
+            <div class="scene-2-bottom">
+            <p class="desc light">A new chapter, with the same heart behind every serving.</p>
+            <h3>
+              <span class="bolder">TO UNLIMITED<br>BUCKET WINGS.</span>
+            </h3>
+          </div>
+          </div>
 
-
-        <!-- End-of-Story Indicator Before Footer -->
-        <div id="story-end-marker">
-          <span class="end-badge">END OF STORY</span>
-          <h3>That’s the Primo’s story.</h3>
-          <p>You’ve reached the end of our story images. Click below to head straight to our branch hotlines and hours in the footer.</p>
-          <a href="#site-footer" id="jump-to-footer-btn">
-            <span>Next: Footer</span>
-            <i class="bx bx-down-arrow-alt"></i>
-          </a>
+          <div class="scene scene-3"></div>
+          <div class="scene scene-4"></div>
         </div>
       </section>
     </main>
