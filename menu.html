@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primo's Menu &amp; Craving Planner</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/navs.css">
+    <link rel="stylesheet" href="./styles/menu.css">
+
+    <!-- Preload Hero Background -->
+    <link rel="preload" as="image" href="./graphics/site/hero-home_happy-all.jpeg" fetchpriority="high">
+
+    <!-- Favicon & Icons -->
+    <link rel="shortcut icon" href="./graphics/brand/logo.ico" type="image/x-icon">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href="./index.html" class="logo-link">
+            <img src="./graphics/brand/logo.svg" alt="Primo's logo" class="nav-logo">
+        </a>
+
+        <input type="checkbox" name="menu" id="menu">
+
+        <nav>
+            <ul>
+                <li><a href="./about.html">ABOUT</a></li>
+                <li><a href="./menu.html">MENU</a></li>
+                <li><a href="./branches.html">BRANCHES</a></li>
+                <li><a href="./franchise.html">FRANCHISE</a></li>
+            </ul>
+            <label for="menu" class="links-menu-wrapper">
+                <span>
+                    Menu
+                    <i class="bx bx-menu hamburger-btn"></i>
+                </span>
+            </label>
+        </nav>
+
+        <button type="button" id="add-to-cart-btn">
+            <span>
+                <img src="./graphics/site/form-icon.svg" alt="">
+            </span>
+            <h3>MEAL PLANNER</h3>
+            <span>
+                <img src="./graphics/site/circle-indicator.svg" alt="">
+            </span>
+        </button>
+    </header>
+
+    <aside id="craving-planner" aria-label="Your Craving Planner">
+        <div class="header">
+            <div class="title-group">
+                <span class="subtitle">DINE-IN ORDER GUIDE</span>
+                <h2 class="title">YOUR CRAVING PLANNER</h2>
+            </div>
+            <button type="button" class="close-btn" aria-label="Close planner">X</button>
+        </div>
+
+        <div class="body">
+            <div class="planner-toolbar" hidden>
+                <label for="planner-sort-select" class="planner-sort-label">Sort by:</label>
+                <select id="planner-sort-select" class="planner-sort-select" aria-label="Sort planned orders">
+                    <option value="recent">Recent (Default)</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="title-asc">Name: A – Z</option>
+                </select>
+            </div>
+
+            <div class="empty-state">
+                <svg class="bucket-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M16 7a4 4 0 0 0-8 0H4l1.6 12.2A2 2 0 0 0 7.58 21h8.84a2 2 0 0 0 1.98-1.8L20 7h-4zm-6 0a2 2 0 1 1 4 0h-4z" />
+                </svg>
+                <h3>Your bucket planner is empty.</h3>
+                <p>Tap “+ Add” on any Unli Deal, Busolve Meal, Fries, or Flavor to estimate your group bill.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="total-row">
+                <span class="total-label">Estimated Total:</span>
+                <span class="total-amount">₱ 0</span>
+            </div>
+            <div class="actions">
+                <button type="button" class="btn-clear">CLEAR</button>
+                <button type="button" class="btn-copy">COPY ORDER SUMMARY</button>
+            </div>
+            <button type="button" class="btn-fb-send">SEND TO PRIMO'S FB PAGE</button>
+        </div>
+    </aside>
+
+    <main id="menu-page">
+        <section class="menu-section">
+            <div class="section-header">
+                <span class="section-tag">SOLO TO BARKADA FEASTS</span>
+                <h1 class="section-title">PRIMO'S DEALS &amp; BUCKETS</h1>
+            </div>
+
+            <div class="menu-grid">
+                <article class="menu-card">
+                    <div class="menu-card-top">
+                        <span class="menu-card-sub">BUSOLVE SOLO</span>
+                        <span class="menu-card-price">₱139</span>
+                    </div>
+                    <h3 class="menu-card-title">GO SOLO</h3>
+                    <p class="menu-card-desc">2 Pcs Chicken Wings, 1 Choice of Flavor + Steamed Rice</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-card-meta">2 Pcs • 1 Flavor</span>
+                        <button
+                            type="button"
+                            class="add-planner-btn"
+                            data-id="go-solo"
+                            data-subheader="BUSOLVE SOLO"
+                            data-title="GO SOLO"
+                            data-price="139"
+                            data-description="2 Pcs Chicken Wings, 1 Choice of Flavor + Steamed Rice"
+                            data-meta="2 Pcs • 1 Flavor"
+                            data-flavors-count="1"
+                        >
+                            + ADD
+                        </button>
+                    </div>
+                </article>
+
+                <article class="menu-card">
+                    <div class="menu-card-top">
+                        <span class="menu-card-sub">MOST POPULAR SOLO</span>
+                        <span class="menu-card-price">₱229</span>
+                    </div>
+                    <h3 class="menu-card-title">PRIMO MEAL</h3>
+                    <p class="menu-card-desc">4 Pcs Chicken Wings, 1 Choice of Flavor + Steamed Rice</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-card-meta">4 Pcs • 1 Flavor</span>
+                        <button
+                            type="button"
+                            class="add-planner-btn"
+                            data-id="primo-meal"
+                            data-subheader="MOST POPULAR SOLO"
+                            data-title="PRIMO MEAL"
+                            data-price="229"
+                            data-description="4 Pcs Chicken Wings, 1 Choice of Flavor + Steamed Rice"
+                            data-meta="4 Pcs • 1 Flavor"
+                            data-flavors-count="1"
+                        >
+                            + ADD
+                        </button>
+                    </div>
+                </article>
+
+                <article class="menu-card">
+                    <div class="menu-card-top">
+                        <span class="menu-card-sub">DUO BUCKET</span>
+                        <span class="menu-card-price">₱449</span>
+                    </div>
+                    <h3 class="menu-card-title">DOUBLE SAMPLER</h3>
+                    <p class="menu-card-desc">8 Pcs Chicken Wings with up to 2 Signature Flavors</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-card-meta">8 Pcs • 2 Flavors</span>
+                        <button
+                            type="button"
+                            class="add-planner-btn"
+                            data-id="double-sampler"
+                            data-subheader="DUO BUCKET"
+                            data-title="DOUBLE SAMPLER"
+                            data-price="449"
+                            data-description="8 Pcs Chicken Wings with up to 2 Signature Flavors"
+                            data-meta="8 Pcs • 2 Flavors"
+                            data-flavors-count="2"
+                        >
+                            + ADD
+                        </button>
+                    </div>
+                </article>
+
+                <article class="menu-card">
+                    <div class="menu-card-top">
+                        <span class="menu-card-sub">TRIO BUCKET</span>
+                        <span class="menu-card-price">₱659</span>
+                    </div>
+                    <h3 class="menu-card-title">TRIPLE SAMPLER</h3>
+                    <p class="menu-card-desc">12 Pcs Chicken Wings with up to 3 Signature Flavors</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-card-meta">12 Pcs • 3 Flavors</span>
+                        <button
+                            type="button"
+                            class="add-planner-btn"
+                            data-id="triple-sampler"
+                            data-subheader="TRIO BUCKET"
+                            data-title="TRIPLE SAMPLER"
+                            data-price="659"
+                            data-description="12 Pcs Chicken Wings with up to 3 Signature Flavors"
+                            data-meta="12 Pcs • 3 Flavors"
+                            data-flavors-count="3"
+                        >
+                            + ADD
+                        </button>
+                    </div>
+                </article>
+
+                <article class="menu-card">
+                    <div class="menu-card-top">
+                        <span class="menu-card-sub">DINE-IN UNLI RATE</span>
+                        <span class="menu-card-price">₱549</span>
+                    </div>
+                    <h3 class="menu-card-title">SULIT UNLI ALL-IN</h3>
+                    <p class="menu-card-desc">Unlimited Wings + Unlimited Fries + Unlimited Ranch Dip</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-card-meta">Per Head • Unli Refills</span>
+                        <button
+                            type="button"
+                            class="add-planner-btn"
+                            data-id="unli-all-in"
+                            data-subheader="DINE-IN UNLI RATE"
+                            data-title="SULIT UNLI ALL-IN"
+                            data-price="549"
+                            data-description="Unlimited Wings + Unlimited Fries + Unlimited Ranch Dip"
+                            data-meta="Per Head • Unli Refills"
+                            data-flavors-count="0"
+                        >
+                            + Add Unli All-In (₱549)
+                        </button>
+                    </div>
+                </article>
+
+                <article class="menu-card">
+                    <div class="menu-card-top">
+                        <span class="menu-card-sub">CRISPY GOLDEN FRIES</span>
+                        <span class="menu-card-price">₱99</span>
+                    </div>
+                    <h3 class="menu-card-title">SPICY BBQ FRIES</h3>
+                    <p class="menu-card-desc">Smoky, tangy barbecue dust with a bold chili kick</p>
+                    <div class="menu-card-footer">
+                        <span class="menu-card-meta">1 Order • Fries</span>
+                        <button
+                            type="button"
+                            class="add-planner-btn"
+                            data-id="spicy-bbq-fries"
+                            data-subheader="CRISPY GOLDEN FRIES"
+                            data-title="SPICY BBQ FRIES"
+                            data-price="99"
+                            data-description="Smoky, tangy barbecue dust with a bold chili kick"
+                            data-meta="1 Order • Fries"
+                            data-flavors-count="0"
+                        >
+                            + ADD FRIES (₱99)
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer id="site-footer">
+        <section id="wrapper">
+            <div class="history">
+                <h1 class="title">PRIMO'S UNLIMITED BUCKET WINGS</h1>
+                <h4 class="desc">The First and Original Unlimited Bucket Wings in Metro Manila. High quality homemade
+                    sauces and crunchy fried wings.</h4>
+            </div>
+            <div class="contact">
+                <h1 class="title">BRANCH HOTLINE</h1>
+                <ul>
+                    <li>Taguig: +63 954 315 9849</li>
+                    <li>Batangas: +63 956 351 1173</li>
+                    <li>primosdinerph@gmail.com</li>
+                </ul>
+            </div>
+            <div class="service">
+                <h1 class="title">OPERATING HOURS</h1>
+                <ul>
+                    <li>Dine-in &amp; Delivery Services</li>
+                    <li>Monday - Sunday: 11:00 AM - 10:00 PM</li>
+                </ul>
+            </div>
+        </section>
+    </footer>
+
+    <script src="./scripts/script.js" defer></script>
+</body>
+
+</html>
