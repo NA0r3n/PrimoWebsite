@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Primo's Admin Panel</title>
+<link rel="icon" href="./graphics/brand/logo.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#E3180F; --red-dark:#B30F08; --ink:#1A1414; --paper:#FFFFFF;
+    --bg:#F6F2F0; --line:#E4DCD8; --muted:#7A6E6A; --ok:#1E8A4C; --warn:#C77700;
+    --display:"Montserrat","Arial Black",Arial,sans-serif;
+    --body:"Montserrat","Segoe UI",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);display:flex;min-height:100vh}
+  button,input,select{font:inherit}
+  button,label{cursor:pointer}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+  /* Pure CSS Tab Radios */
+  .view-radio{display:none}
+
+  aside{width:230px;background:var(--red);color:#fff;padding:24px 16px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh}
+  .logo{display:block;width:100%;max-width:170px;aspect-ratio:1;border-radius:16px;margin:0 auto 22px;object-fit:contain}
+  h1,h2,h3,.stat b,.timer,.unli b,.unli .big{font-weight:900}
+  nav{display:flex;flex-direction:column;gap:4px}
+  nav label{display:block;color:#fff;text-align:left;padding:12px 12px;font-weight:700;font-size:15px;width:100%;border-radius:8px;user-select:none}
+  nav label:hover{background:var(--red-dark)}
+
+  #v-tables:checked ~ aside nav label[for="v-tables"],
+  #v-orders:checked ~ aside nav label[for="v-orders"],
+  #v-menu:checked ~ aside nav label[for="v-menu"],
+  #v-flavors:checked ~ aside nav label[for="v-flavors"],
+  #v-sales:checked ~ aside nav label[for="v-sales"]{
+    background:#fff;color:var(--red);
+  }
+
+  main{flex:1;padding:28px 32px;max-width:1100px}
+  .view-section{display:none}
+  #v-tables:checked ~ main #sec-tables,
+  #v-orders:checked ~ main #sec-orders,
+  #v-menu:checked ~ main #sec-menu,
+  #v-flavors:checked ~ main #sec-flavors,
+  #v-sales:checked ~ main #sec-sales{
+    display:block;
+  }
+
+  h1{font-family:var(--display);font-size:30px;margin-bottom:4px}
+  .sub{color:var(--muted);margin-bottom:14px}
+  .sync-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:20px;font-size:13px}
+  .sync-pill{font-weight:700;color:var(--ok)}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:26px}
+  .stat{background:var(--paper);border:2px solid var(--ink);border-radius:10px;padding:14px 16px}
+  .stat b{display:block;font-family:var(--display);font-size:30px;line-height:1.1}
+  .stat span{color:var(--muted);font-size:14px}
+
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:22px}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+  label.field{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700}
+  input,select{padding:10px 12px;border:1px solid var(--line);border-radius:8px;min-width:120px;background:#fff}
+  .btn{background:var(--red);color:#fff;border:0;border-radius:8px;padding:11px 18px;font-weight:700;text-decoration:none;display:inline-block}
+  .btn:hover{background:var(--red-dark)}
+  .btn.alt{background:var(--ink)}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn.sm{padding:8px 12px;font-size:14px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .tbl{background:var(--paper);border:1px solid var(--line);border-left:8px solid var(--ok);border-radius:10px;padding:14px}
+  .tbl.low{border-left-color:var(--warn)}
+  .tbl.over{border-left-color:var(--red)}
+  .tbl h3{font-family:var(--display);font-size:20px;display:flex;justify-content:space-between}
+  .timer{font-family:var(--display);font-size:34px;margin:6px 0}
+  .meta{color:var(--muted);font-size:14px;margin-bottom:12px}
+  .acts{display:flex;gap:8px}
+  .acts + .acts{margin-top:8px}
+  .acts select{flex:1;min-width:0;padding:8px}
+  .unli{background:var(--red);color:#fff;border-radius:12px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}
+  .unli b{font-family:var(--display);font-size:22px;display:block}
+  .unli .big{font-family:var(--display);font-size:42px}
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  .menu-grid .panel{margin-bottom:0}
+  .menu-grid h2{font-family:var(--display);font-size:20px;color:var(--red);margin-bottom:8px}
+  td.price{text-align:right;font-weight:700}
+  .note{color:var(--muted);font-size:13px}
+
+  table{width:100%;border-collapse:collapse}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px}
+  th{font-size:13px;color:var(--muted)}
+  .badge{display:inline-block;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#EFE9E6;color:var(--ink)}
+
+  /* Pure CSS Toggle Switches for Flavors */
+  .flav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
+  .flav-chk{display:none}
+  .sw{width:46px;height:26px;border-radius:13px;background:#C9C0BC;position:relative;display:inline-block}
+  .sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s}
+  .flav-chk:checked ~ .sw{background:var(--ok)}
+  .flav-chk:checked ~ .sw::after{left:23px}
+  .flav-label{font-weight:600}
+  .flav-chk:not(:checked) + .flav-label{text-decoration:line-through;color:var(--muted)}
+
+  .aside-actions{margin-top:auto;display:flex;flex-direction:column;gap:8px}
+  .aside-actions a{display:block;text-align:center;background:#fff;color:#E3180F;padding:9px 12px;border-radius:8px;font-weight:800;font-size:13px;text-decoration:none}
+
+  @media (max-width:760px){
+    body{flex-direction:column}
+    aside{width:100%;height:auto;position:sticky;top:0;z-index:50;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;box-shadow:0 2px 10px rgba(0,0,0,0.12)}
+    .logo{width:42px;max-width:42px;margin:0;border-radius:10px;order:1}
+    .aside-actions{margin-top:0;flex-direction:row;align-items:center;gap:6px;order:2}
+    .aside-actions a{padding:7px 10px;font-size:11px;white-space:nowrap}
+    nav{display:flex;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:6px;width:100%;order:3;padding-top:4px;border-top:1px solid rgba(255,255,255,0.2)}
+    nav::-webkit-scrollbar{display:none}
+    nav label{width:auto;flex:0 0 auto;text-align:center;padding:7px 12px;font-size:13px;border-radius:999px;white-space:nowrap}
+    main{padding:18px 14px}
+  }
+</style>
+</head>
+<body>
+<input type="radio" name="adminView" id="v-tables" class="view-radio" checked>
+<input type="radio" name="adminView" id="v-orders" class="view-radio">
+<input type="radio" name="adminView" id="v-menu" class="view-radio">
+<input type="radio" name="adminView" id="v-flavors" class="view-radio">
+<input type="radio" name="adminView" id="v-sales" class="view-radio">
+
+<aside>
+  <img class="logo" src="./graphics/brand/logo.svg" alt="Primo's Unlimited Bucket Wings">
+  <nav>
+    <label for="v-tables">Tables</label>
+    <label for="v-orders">Orders</label>
+    <label for="v-menu">Menu</label>
+    <label for="v-flavors">Flavors</label>
+    <label for="v-sales">Sales</label>
+  </nav>
+  <div class="aside-actions">
+    <a href="./index.html">VIEW WEBSITE</a>
+  </div>
+</aside>
+
+<main id="app">
+  <!-- TABLES VIEW -->
+  <section id="sec-tables" class="view-section">
+    <h1>Tables</h1>
+    <p class="sub">Unli wings and rice is ₱499 per person for 90 minutes, with 1 creamy ranch dip.</p>
+    <div class="sync-bar">
+      <span class="sync-pill">Comembo Main Branch • Pure HTML &amp; CSS Board</span>
+      <a href="#sec-tables" class="btn ghost sm">Refresh Board</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>3</b><span>Tables seated (11 guests)</span></div>
+      <div class="stat"><b>14</b><span>Buckets today (~84 wings)</span></div>
+      <div class="stat"><b>₱8,613</b><span>Sales today (4 tables paid)</span></div>
+    </div>
+    <form class="panel row" action="#sec-tables" method="get">
+      <label class="field">Table<input placeholder="e.g. 5" required></label>
+      <label class="field">Guests<input type="number" min="1" max="30" value="2" required></label>
+      <button type="submit" class="btn">Start unli session</button>
+    </form>
+    <div class="grid">
+      <div class="tbl">
+        <h3>Table 1 <span>4 pax</span></h3>
+        <div class="timer">64:20</div>
+        <div class="meta">3 buckets · 1 extra · Bill ₱2,026</div>
+        <div class="acts">
+          <a href="#sec-tables" class="btn sm">Add bucket</a>
+          <a href="#sec-sales" class="btn sm alt">End and bill</a>
+        </div>
+        <div class="acts">
+          <select aria-label="Extra for Table 1">
+            <option>Creamy Ranch Dip (₱30)</option>
+            <option>Primo's Dip (₱30)</option>
+            <option>Java Rice (₱30)</option>
+            <option>Plain Rice (₱25)</option>
+            <option>Extra Flavored Sauce (₱30)</option>
+          </select>
+          <a href="#sec-tables" class="btn ghost sm">Add extra</a>
+        </div>
+      </div>
+
+      <div class="tbl low">
+        <h3>Table 3 <span>5 pax</span></h3>
+        <div class="timer">08:45</div>
+        <div class="meta">5 buckets · 0 extras · Bill ₱2,495</div>
+        <div class="acts">
+          <a href="#sec-tables" class="btn sm">Add bucket</a>
+          <a href="#sec-sales" class="btn sm alt">End and bill</a>
+        </div>
+        <div class="acts">
+          <select aria-label="Extra for Table 3">
+            <option>Creamy Ranch Dip (₱30)</option>
+            <option>Primo's Dip (₱30)</option>
+            <option>Java Rice (₱30)</option>
+            <option>Plain Rice (₱25)</option>
+            <option>Extra Flavored Sauce (₱30)</option>
+          </select>
+          <a href="#sec-tables" class="btn ghost sm">Add extra</a>
+        </div>
+      </div>
+
+      <div class="tbl over">
+        <h3>Table 4 <span>2 pax</span></h3>
+        <div class="timer">+03:12</div>
+        <div class="meta">2 buckets · 1 extra · Bill ₱1,028</div>
+        <div class="acts">
+          <a href="#sec-tables" class="btn sm">Add bucket</a>
+          <a href="#sec-sales" class="btn sm alt">End and bill</a>
+        </div>
+        <div class="acts">
+          <select aria-label="Extra for Table 4">
+            <option>Creamy Ranch Dip (₱30)</option>
+            <option>Primo's Dip (₱30)</option>
+            <option>Java Rice (₱30)</option>
+            <option>Plain Rice (₱25)</option>
+            <option>Extra Flavored Sauce (₱30)</option>
+          </select>
+          <a href="#sec-tables" class="btn ghost sm">Add extra</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDERS VIEW -->
+  <section id="sec-orders" class="view-section">
+    <h1>Orders</h1>
+    <p class="sub">Customer delivery, pickup, and dine-in guide orders.</p>
+    <div class="panel" style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Order ID</th><th>Customer</th><th>Contact</th><th>Type</th><th>Status</th><th>Update</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>PRM-1042</b></td>
+            <td>Juan Dela Cruz</td>
+            <td>0917 555 0192</td>
+            <td>Delivery</td>
+            <td><span class="badge">Preparing</span></td>
+            <td>
+              <select aria-label="Status for PRM-1042">
+                <option>Pending</option>
+                <option>Seen</option>
+                <option selected>Preparing</option>
+                <option>Ready</option>
+                <option>Completed</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><b>PRM-1041</b></td>
+            <td>Maria Clara</td>
+            <td>0918 442 8831</td>
+            <td>Pickup</td>
+            <td><span class="badge">Ready</span></td>
+            <td>
+              <select aria-label="Status for PRM-1041">
+                <option>Pending</option>
+                <option>Seen</option>
+                <option>Preparing</option>
+                <option selected>Ready</option>
+                <option>Completed</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- MENU VIEW -->
+  <section id="sec-menu" class="view-section">
+    <h1>Menu</h1>
+    <p class="sub">Branch pricing reference. Unli flavors are managed in the Flavors tab.</p>
+    <div class="unli">
+      <div><b>Unlimited wings and rice + dip</b><span>Plus 1 serving of creamy ranch dip</span></div>
+      <span class="big">₱499</span>
+    </div>
+    <div class="menu-grid">
+      <div class="panel">
+        <h2>Sulit Primo deals</h2>
+        <table>
+          <tbody>
+            <tr><td>Go Solo <span class="note">(2 pcs wings + rice)</span></td><td class="price">₱139</td></tr>
+            <tr><td>Primo Meal <span class="note">(4 pcs wings + rice)</span></td><td class="price">₱229</td></tr>
+            <tr><td>Double Sampler <span class="note">(8 pcs, 2 flavors)</span></td><td class="price">₱449</td></tr>
+            <tr><td>Triple Sampler <span class="note">(12 pcs, 3 flavors)</span></td><td class="price">₱659</td></tr>
+            <tr><td>Party Wings <span class="note">(24 pcs, 4 flavors)</span></td><td class="price">₱1,200</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h2>Extras &amp; Sides</h2>
+        <table>
+          <tbody>
+            <tr><td>Flavored Fries <span class="note">(Plain / BBQ / Sour Cream / Cheese)</span></td><td class="price">₱99</td></tr>
+            <tr><td>Creamy Ranch Dip</td><td class="price">₱30</td></tr>
+            <tr><td>Primo's Dip</td><td class="price">₱30</td></tr>
+            <tr><td>Java Rice</td><td class="price">₱30</td></tr>
+            <tr><td>Plain Rice</td><td class="price">₱25</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAVORS VIEW -->
+  <section id="sec-flavors" class="view-section">
+    <h1>Flavors</h1>
+    <p class="sub">Toggle switches below to mark any of the 11 signature flavors available or sold out.</p>
+    <div class="panel">
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Primo's Buffalo</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Jack Daniel's</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Primo's Sisig</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Salted Egg</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Cheese Bomb</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Garlic Parmesan</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Honey Mustard</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Smokey BBQ</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Korean Yangnyeom</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Honey Sriracha</span><span class="sw"></span></label>
+      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Salt &amp; Pepper</span><span class="sw"></span></label>
+    </div>
+  </section>
+
+  <!-- SALES VIEW -->
+  <section id="sec-sales" class="view-section">
+    <h1>Sales</h1>
+    <p class="sub">Completed table bills for today at Comembo Main Branch.</p>
+    <div class="stats">
+      <div class="stat"><b>4</b><span>Tables paid today</span></div>
+      <div class="stat"><b>17</b><span>Guests served</span></div>
+      <div class="stat"><b>₱8,613</b><span>Total revenue today</span></div>
+    </div>
+    <div class="panel" style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr><th>Time</th><th>Table</th><th>Guests</th><th>Buckets</th><th>Extras</th><th>Total</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>4:15 PM</td><td>Table 2</td><td>6</td><td>7</td><td>₱120</td><td><b>₱3,114</b></td></tr>
+          <tr><td>2:50 PM</td><td>Table 5</td><td>4</td><td>4</td><td>₱60</td><td><b>₱2,056</b></td></tr>
+          <tr><td>1:35 PM</td><td>Table 1</td><td>4</td><td>4</td><td>₱0</td><td><b>₱1,996</b></td></tr>
+          <tr><td>12:20 PM</td><td>Table 3</td><td>3</td><td>2</td><td>₱0</td><td><b>₱1,447</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+</body>
+</html>

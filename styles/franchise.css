@@ -1,0 +1,241 @@
+/* ================= FRANCHISE PAGE BASE ================= */
+#franchise-page {
+  background: #141416;
+  color: #ffffff;
+  padding-top: 90px; /* clears the fixed navbar */
+}
+
+/* ================= FRANCHISE INTRO ================= */
+.franchise-intro {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2.5rem;
+  text-align: center;
+}
+
+.franchise-intro .eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  color: var(--primo-gold, #ffcf40);
+  margin-bottom: 0.65rem;
+}
+
+.franchise-intro h1 {
+  font-family: Outfit, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.franchise-intro .intro-copy {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.franchise-intro .hl {
+  color: var(--primo-gold, #ffcf40);
+  font-weight: 700;
+}
+
+/* ================= FRANCHISE VISUALS ================= */
+.franchise-visuals {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.visual-block {
+  background: #1e1e22;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.visual-block:hover {
+  transform: translateY(-4px);
+  border-color: var(--primo-gold, #ffcf40);
+}
+
+.visual-block img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ================= HOW TO FRANCHISE STEPS ================= */
+.franchise-steps {
+  padding: 4.5rem 1.5rem;
+  background: var(--primo-red, #cf2020);
+  color: #ffffff;
+}
+
+.franchise-steps .section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.franchise-steps .eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--primo-gold, #ffcf40);
+  margin-bottom: 0.5rem;
+}
+
+.franchise-steps .section-header h2 {
+  font-family: Outfit, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.85rem;
+}
+
+.franchise-steps .section-header p {
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.7;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1120px;
+  margin: 3rem auto 0;
+}
+
+.step-card {
+  background: rgba(20, 20, 22, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  padding: 1.75rem;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+  background: rgba(20, 20, 22, 0.52);
+  border-color: var(--primo-gold, #ffcf40);
+}
+
+.step-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primo-gold, #ffcf40);
+  color: #141416;
+  font-weight: 900;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.step-card h3 {
+  font-family: Outfit, sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 0.65rem;
+}
+
+.step-card p {
+  line-height: 1.65;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ================= FRANCHISE CONTACT ================= */
+.franchise-contact {
+  padding: 4.5rem 1.5rem;
+  background: #141416;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-container {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-container .eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--primo-gold, #ffcf40);
+  margin-bottom: 0.5rem;
+}
+
+.contact-container h2 {
+  font-family: Outfit, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.85rem;
+}
+
+.contact-text {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  text-decoration: none;
+  color: #ffffff;
+  background: #1e1e22;
+  border: 1px solid rgba(255, 207, 64, 0.35);
+  border-radius: 16px;
+  padding: 1.35rem 1.5rem;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 207, 64, 0.12);
+  border-color: var(--primo-gold, #ffcf40);
+}
+
+.contact-icon {
+  font-size: 1.85rem;
+  color: var(--primo-gold, #ffcf40);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-card strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.contact-card p {
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.82);
+}

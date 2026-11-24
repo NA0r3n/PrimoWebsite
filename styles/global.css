@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Maitree:wght@200;300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Libre+Baskerville:ital,wght@1,400..700&display=swap');
+
+:root {
+   --grid-size: 1rem; /* Adjust square size */
+  --line-thickness: 0.06rem; /* Adjust grid line width */
+  --bg-red: #f11b1b; /* Main red base */
+  --line-color: rgba(255, 165, 165, 0.45);
+
+  --fw-bolder: 700;
+  --fw-bold: 600;
+  --fw-reg: 500;
+  --fw-normal: 400;
+  --fw-light: 300;
+
+  --ff-serif: "Libre Baskerville", serif;
+}
+
+.bolder {
+  font-weight: var(--fw-bolder);
+}
+.bold {
+  font-weight: var(--fw-bold);
+}
+.reg {
+  font-weight: var(--fw-reg);
+}
+.normal {
+  font-weight: var(--fw-normal);
+}
+.light {
+  font-weight: var(--fw-light);
+}
+
+.serif {
+  font-family: var(--ff-serif) !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInFast {
+  from { opacity:0; }
+  to { opacity:1; }
+}
+
+#hero, #promos, #signatures {
+  animation: fadeIn 0.6s ease forwards;
+}
+#promos {
+  animation-delay: 0.15s;
+}
+#signatures {
+  animation-delay: 0.3s;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: rgba(11, 11, 12, 1);
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+}
+
+img {
+  height: auto;
+  aspect-ratio: auto;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Card skeleton background before image finishes loading */
+.promo-card,
+.item-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(110deg, #16161a 30%, #222228 50%, #16161a 70%);
+    background-size: 200% 100%;
+    animation: cardShimmer 1.6s infinite linear;
+}
+
+/* Stop shimmer once JS marks the card as loaded */
+.promo-card.is-loaded,
+.item-card.is-loaded {
+    animation: none;
+    background: #16161a;
+}
+
+/* Smooth fade-in + subtle settle for images (pure CSS, no JS required) */
+.promo-card img,
+.item-card img {
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.promo-card img.loaded,
+.item-card img.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@keyframes cardShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+
+footer {
+  margin-top: 15rem;
+  background-color: #000;
+  width: 100%;
+}
+
+footer > #wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 4rem 2rem 6rem;
+}
+
+footer > #wrapper > div {
+  padding: 0;
+}
+
+footer > #wrapper > div > h1.title {
+  color: #fff;
+  font-size: clamp(.8rem, 5vw, 2.25rem);
+}
+
+footer > #wrapper > div > h4.desc {
+  color: #ffffff9c;
+  font-size: clamp(0.2rem, 2vw, 1rem);
+}
+
+footer > #wrapper > div.history {
+  width: min(35rem, 100%);
+}
+
+footer > #wrapper > div:has(h4) > h4 {
+  margin-top: 0.5rem;
+}
+
+footer > #wrapper > div > ul{
+  list-style-type: disc !important;
+  padding-left: 1.2rem !important;
+  color: #ffffff9c;
+  text-align: left;
+}
+
+footer > #wrapper > div > ul > li {
+  font-size: clamp(0.2rem, 2vw, 1rem);
+}
+
+footer > #wrapper > div:has(ul) > ul {
+  margin-top: 1rem;
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  footer {
+    margin-top: 8rem;
+  }
+  footer > #wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3rem 1.25rem 5rem;
+    gap: 2.5rem;
+  }
+}
+
+@keyframes nudgeDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+#site-footer {
+  scroll-margin-top: 72px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --grid-size: 5rem;
+    --line-thickness: 0.2rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --grid-size: 5rem;
+    --line-thickness: 0.2rem;
+  }
+}
+
+/* ================= ORDER MODAL ================= */
+.primo-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 2000;
+}
+
+.primo-modal.active {
+  display: flex;
+}
+
+.primo-modal-box {
+  background: var(--primo-dark, #141416);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  color: #ffffff;
+  font-family: Inter, sans-serif;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+}
+
+.primo-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.modal-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--primo-gold, #ffcf40);
+}
+
+.primo-modal-header h2 {
+  margin: 0.2rem 0 0;
+  font-size: 1.25rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.order-type-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.order-tab {
+  padding: 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #1e1e22;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.order-tab.active {
+  background: var(--primo-red, #ff4757);
+  border-color: var(--primo-red, #ff4757);
+}
+
+.branch-status {
+  font-size: 0.8rem;
+  color: var(--primo-gold, #ffcf40);
+  background: rgba(255, 207, 64, 0.08);
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  margin: 0 0 1rem;
+}
+
+#primo-order-form label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #e0e0e0;
+}
+
+#primo-order-form input,
+#primo-order-form select {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  margin-bottom: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #1e1e22;
+  color: #ffffff;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+#primo-auth-form label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: #e0e0e0;
+}
+
+#primo-auth-form input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  margin-bottom: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #1e1e22;
+  color: #ffffff;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.modal-submit-btn {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--primo-red, #ff4757);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.modal-submit-btn:hover {
+  opacity: 0.9;
+}
+
+.receipt-box {
+  background: #1e1e22;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0.75rem 0;
+}
+
+.receipt-note {
+  font-size: 0.82rem;
+  color: var(--primo-gold, #ffcf40);
+  margin-bottom: 1rem;
+}
+
+/* ================= NAV SIGN IN BUTTON ================= */
+.nav-signin-btn {
+  order: 4;
+  margin-left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--primo-gold, #ffcf40);
+  background: transparent;
+  color: #ffffff;
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.nav-signin-btn:hover {
+  background: var(--primo-gold, #ffcf40);
+  color: #141416;
+  transform: translateY(-1px);
+}
+
+.nav-signin-btn.signed-in {
+  background: var(--primo-red, #ff4757);
+  border-color: var(--primo-red, #ff4757);
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .nav-signin-btn {
+    margin-left: 0.25rem;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-signin-btn {
+    padding: 0.4rem 0.65rem;
+    font-size: 0.68rem;
+    gap: 0.25rem;
+  }
+}
+
+/* ================= SIGN IN MODAL EXTRAS ================= */
+.auth-mode-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.auth-tab {
+  padding: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #1e1e22;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.auth-tab.active {
+  background: var(--primo-gold, #ffcf40);
+  border-color: var(--primo-gold, #ffcf40);
+  color: #141416;
+}
+
+.auth-feedback {
+  min-height: 1.1rem;
+  font-size: 0.78rem;
+  color: var(--primo-gold, #ffcf40);
+  margin: -0.25rem 0 0.75rem;
+}
+
+.signout-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  background: #1e1e22;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.signout-btn:hover {
+  background: #2b2b31;
+}
+
+/* Pure CSS Modal Triggering via :target */
+.primo-modal:target {
+  display: flex;
+}
+
+.modal-close {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pure CSS Order Type Tabs (Delivery vs Pickup) */
+.order-type-radio {
+  display: none;
+}
+
+#tab-delivery:checked ~ .order-type-tabs label[for="tab-delivery"],
+#tab-pickup:checked ~ .order-type-tabs label[for="tab-pickup"] {
+  background: var(--primo-red, #ff4757);
+  border-color: var(--primo-red, #ff4757);
+  color: #ffffff;
+}
+
+.order-tab {
+  display: block;
+  text-align: center;
+  margin-bottom: 0 !important;
+  color: #ffffff !important;
+  font-size: 0.85rem !important;
+}
+
+.pickup-only-note,
+.pickup-location-field,
+.pickup-submit-btn {
+  display: none !important;
+}
+
+#tab-pickup:checked ~ .delivery-only-note,
+#tab-pickup:checked ~ .delivery-location-field,
+#tab-pickup:checked ~ .delivery-submit-btn {
+  display: none !important;
+}
+
+#tab-pickup:checked ~ .pickup-only-note {
+  display: block !important;
+}
+
+#tab-pickup:checked ~ .pickup-location-field {
+  display: block !important;
+}
+
+#tab-pickup:checked ~ .pickup-submit-btn {
+  display: block !important;
+}
+
+/* Pure CSS Auth Mode Tabs (Sign In vs Create Account) */
+.auth-mode-radio {
+  display: none;
+}
+
+#auth-mode-signin:checked ~ .auth-mode-tabs label[for="auth-mode-signin"],
+#auth-mode-register:checked ~ .auth-mode-tabs label[for="auth-mode-register"] {
+  background: var(--primo-gold, #ffcf40);
+  border-color: var(--primo-gold, #ffcf40);
+  color: #141416;
+}
+
+.auth-tab {
+  display: block;
+  text-align: center;
+}
+
+#register-name-group,
+.register-submit-btn {
+  display: none !important;
+}
+
+#auth-mode-register:checked ~ #primo-auth-form #register-name-group {
+  display: block !important;
+}
+
+#auth-mode-register:checked ~ #primo-auth-form .signin-submit-btn {
+  display: none !important;
+}
+
+#auth-mode-register:checked ~ #primo-auth-form .register-submit-btn {
+  display: block !important;
+}
+
+.nav-signin-btn {
+  text-decoration: none;
+}

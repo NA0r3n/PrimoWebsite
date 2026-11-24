@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primo's Website</title>
+
+    <!-- Styling -->
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/navs.css">
+    <link rel="stylesheet" href="./styles/hero-home.css">
+    <link rel="stylesheet" href="./styles/home-promos.css">
+    <link rel="stylesheet" href="./styles/home-signatures.css">
+
+    <!-- Preload Hero Background -->
+    <link rel="preload" as="image" href="./graphics/site/hero-home_happy-all.jpeg" fetchpriority="high">
+    
+    <!-- Logo -->
+    <link rel="shortcut icon" href="./graphics/brand/logo.ico" type="image/x-icon">
+
+    <!-- Basic Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+      <a href="./index.html" class="logo-link">
+        <img src="./graphics/brand/logo.svg" alt="Primo's logo" class="nav-logo">
+      </a>
+      <input type="checkbox" name="menu" id="menu">
+      <nav>
+        <ul>
+          <li><a href="./about.html">ABOUT</a></li>
+          <li><a href="./menu.html">MENU</a></li>
+          <li><a href="./branches.html">BRANCHES</a></li>
+          <li><a href="./franchise.html">FRANCHISE</a></li>
+        </ul>
+        <label for="menu" class="links-menu-wrapper">
+          <span>
+            Menu
+           <i class="bx bx-menu hamburger-btn"></i>
+          </span>
+        </label>
+      </nav>
+      <a href="#signin-modal" id="nav-signin-btn" class="nav-signin-btn">
+        <i class="bx bx-user"></i>
+        <span>SIGN IN</span>
+      </a>
+    </header>
+    
+    <main id="home-tour">
+      <section id="hero">
+        <div class="wrapper">
+            <span class="brand-alert">
+                <img src="./graphics/site/red-dot.svg" alt="red dot" class="red-dot">
+                THE 1ST &amp; ORIGINAL UNLIMITED BUCKET CHICKEN WINGS IN METRO MANILA
+            </span>
+            <h1 class="hero-header brand">PRIMO’S BUCKET WINGS.</h1>
+            <h1 class="highlights-1">UNLIMITED</h1>
+            <h1 class="highlights-2">FLAVOR.</h1>
+            <h3 class="tagline">
+                “Sulit. Sarap. Saya!”
+            </h3>
+            <p class="message">Great food is meant to be shared, and our buckets are packed to bring everyone together. Come hungry, unbutton your jacket, and enjoy unlimited wings done right.</p>
+
+            <div id="btns-wrapper">
+                <a href="#signatures" class="primary" style="text-decoration:none;color:#fff;font-family:Inter,sans-serif;font-weight:700;font-size:0.92rem;letter-spacing:0.02em;flex:1 1 190px;max-width:230px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0 1.25rem;box-sizing:border-box;background-color:#E60000;border:1px solid rgba(255,255,255,0.3);box-shadow:0px 8px 24px rgba(230,0,0,0.4);">
+                    EXPLORE 11 FLAVORS 
+                    <i class="bx bx-chevrons-right"></i>
+                </a>
+                <a href="#order-modal" id="open-order-btn" class="secondary" style="text-decoration:none;color:#fff;font-family:Inter,sans-serif;font-weight:700;font-size:0.92rem;letter-spacing:0.02em;flex:1 1 190px;max-width:230px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0 1.25rem;box-sizing:border-box;background-color:rgba(20,20,24,0.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.16);box-shadow:0px 8px 24px rgba(0,0,0,0.5);">
+                    <i class="bx bx-shopping-bag"></i>
+                    ORDER DELIVERY / PICKUP
+                </a>
+            </div>
+            <hr class="line-separator">
+            <div class="achievements">
+                <div class="item-1">
+                    <h2 class="achievement">87k+</h2>
+                    <h2 class="label">Facebook Followers</h2>
+                </div>
+                <div class="item-2">
+                    <h2 class="crafted-sauces">11</h2>
+                    <h2 class="label">Crafted Sauces</h2>
+                </div>
+                <div class="item-3">
+                    <h2 class="achievement">2018</h2>
+                    <h2 class="label">Year Established</h2>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section id="promos">
+        <div class="header">
+          <h4 class="subtitle">Deliciously Affordable</h4>
+          <h2 class="title">PRIMO'S DEALS</h2>
+          <h4 class="desc">Choose from our crowd favorite unlimited wing promos, solo-meal sets, or mouthwatering side dishes.</h4>
+        </div>
+
+        <div class="posters">
+          <!-- LEFT COLUMN -->
+          <div class="promo-column">
+            <div class="promo-card">
+              <img src="./graphics/brand/sulit-promo.jpeg" alt="Sulit Ba Sulit Yan Promo" loading="lazy" decoding="async">
+            </div>
+            <div class="promo-card">
+              <img src="./graphics/brand/party-wings-promo.jpeg" alt="Party Wings Promo" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="promo-column">
+            <div class="promo-card">
+              <img src="./graphics/brand/barkada-promo.jpeg" alt="Barkada Promo" loading="lazy" decoding="async">
+            </div>
+            <div class="promo-card">
+              <img src="./graphics/brand/birthday-promo.jpeg" alt="Birthday Promo" loading="lazy" decoding="async">
+            </div>
+            <div class="cta">
+              <h3>WANT TO EXPLORE OUR DEALS?</h3>
+              <a href="./branches.html" style="display:inline-block;text-decoration:none;font-family:Inter,sans-serif;font-size:clamp(1rem,2vw,1.5rem);font-weight:700;background:transparent;color:inherit;border-radius:100px;border:#F20707 solid 6px;padding:0.85rem 2.75rem;margin-top:1.5rem;">
+                VISIT US
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="signatures">
+        <div class="header">
+          <h6>HOMEMADE PREMIUM SAUCES</h6>
+          <h1>OUR 11 SIGNATURE FLAVORS</h1>
+        </div>
+        <div class="grid-container">
+          <!-- Row 1 -->
+          <div class="item-card">
+            <img src="./graphics/brand/jack-daniels-sig.jpeg" alt="jack-daniels" loading="lazy" decoding="async">
+          </div>
+          <div class="item-card">
+            <img src="./graphics/brand/primos-buffalo-sig.jpeg" alt="primos-buffalo" loading="lazy" decoding="async">
+          </div>
+        
+          <!-- Row 2 -->
+          <div class="item-card">
+            <img src="./graphics/brand/primos-sisig-sig.jpeg" alt="primos-sisig" loading="lazy" decoding="async">
+          </div>
+          <div class="item-card">
+            <img src="./graphics/brand/salted-egg-sig.jpeg" alt="salted-egg" loading="lazy" decoding="async">
+          </div>
+        
+          <!-- Row 3 -->
+          <div class="item-card">
+            <img src="./graphics/brand/cheese-bomb-sig.jpeg" alt="cheese-bomb" loading="lazy" decoding="async">
+          </div>
+          <div class="item-card">
+            <img src="./graphics/brand/garlic-parmesan-sig.jpeg" alt="garlic-parmesan" loading="lazy" decoding="async">
+          </div>
+        
+          <!-- Row 4 -->
+          <div class="item-card">
+            <img src="./graphics/brand/honey-mustard-sig.jpeg" alt="honey-mustard" loading="lazy" decoding="async">
+          </div>
+          <div class="item-card">
+            <img src="./graphics/brand/smokey-bbq-sig.jpeg" alt="smokey-bbq" loading="lazy" decoding="async">
+          </div>
+        
+          <!-- Row 5 -->
+          <div class="item-card">
+            <img src="./graphics/brand/korean-yangnyeom-sig.jpeg" alt="korean-yangnyeom" loading="lazy" decoding="async">
+          </div>
+          <div class="item-card">
+            <img src="./graphics/brand/honey-sriracha-sig.jpeg" alt="honey-sriracha" loading="lazy" decoding="async">
+          </div>
+        
+          <!-- Row 6 (single card left side) -->
+          <div class="item-card">
+            <img src="./graphics/brand/saltNpepper-sig.jpeg" alt="saltNpepper" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer">
+      <section id="wrapper">
+        <div class="history">
+          <h1 class="title">PRIMO'S UNLIMITED BUCKET WINGS</h1>
+          <h4 class="desc">The First and Original Unlimited Bucket Wings in Metro Manila. High quality homemade sauces and crunchy fried wings.</h4>
+        </div>
+        <div class="contact">
+          <h1 class="title">BRANCH HOTLINE</h1>
+          <ul>
+            <li>Taguig: +63 954 315 9849</li>
+            <li>Batangas: +63 956 351 1173</li>
+            <li>primosdinerph@gmail.com</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h1 class="title">OPERATING HOURS</h1>
+          <ul>
+            <li>Dine-in &amp; Delivery Services</li>
+            <li>Monday - Sunday: 11:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+    <!-- ================= ORDER DELIVERY / PICKUP MODAL (PURE CSS :target) ================= -->
+    <div id="order-modal" class="primo-modal">
+      <div class="primo-modal-box">
+        <div class="primo-modal-header">
+          <div>
+            <span class="modal-tag">COMEMBO MAIN BRANCH</span>
+            <h2>ORDER DELIVERY / PICKUP</h2>
+          </div>
+          <a href="#home-tour" class="modal-close" aria-label="Close">&times;</a>
+        </div>
+
+        <form id="primo-order-form" action="mailto:primosdinerph@gmail.com" method="post" enctype="text/plain">
+          <input type="radio" name="orderType" id="tab-delivery" value="Delivery" class="order-type-radio" checked>
+          <input type="radio" name="orderType" id="tab-pickup" value="Pickup" class="order-type-radio">
+
+          <div class="order-type-tabs">
+            <label for="tab-delivery" class="order-tab">DELIVERY</label>
+            <label for="tab-pickup" class="order-tab">PICKUP</label>
+          </div>
+
+          <p class="branch-status delivery-only-note">
+            <i class="bx bx-map"></i> Dispatching from 30 J.P. Rizal Ext, Comembo (11:00 AM – 10:00 PM)
+          </p>
+          <p class="branch-status pickup-only-note">
+            <i class="bx bx-store"></i> Store Pickup at 30 J.P. Rizal Ext, Comembo, Taguig (11:00 AM – 10:00 PM)
+          </p>
+
+          <label for="order-package">Choose Promo / Bucket</label>
+          <select id="order-package" name="package" required>
+            <option value="Sulit Ba Sulit Yan Promo">Sulit Ba Sulit Yan Promo</option>
+            <option value="Barkada Bucket Bundle">Barkada Bucket Bundle</option>
+            <option value="Party Wings Tray">Party Wings Tray</option>
+            <option value="Solo Meal Set">Solo Meal Set</option>
+          </select>
+
+          <label for="order-flavor">Signature Sauce</label>
+          <select id="order-flavor" name="flavor" required>
+            <option value="Primo's Buffalo">Primo's Buffalo</option>
+            <option value="Jack Daniel's">Jack Daniel's</option>
+            <option value="Primo's Sisig">Primo's Sisig</option>
+            <option value="Salted Egg">Salted Egg</option>
+            <option value="Cheese Bomb">Cheese Bomb</option>
+            <option value="Garlic Parmesan">Garlic Parmesan</option>
+            <option value="Honey Mustard">Honey Mustard</option>
+            <option value="Smokey BBQ">Smokey BBQ</option>
+            <option value="Korean Yangnyeom">Korean Yangnyeom</option>
+            <option value="Honey Sriracha">Honey Sriracha</option>
+            <option value="Salt & Pepper">Salt &amp; Pepper</option>
+          </select>
+
+          <label for="order-qty">Quantity</label>
+          <input type="number" id="order-qty" name="quantity" min="1" max="20" value="1" required>
+
+          <label for="customer-name">Full Name</label>
+          <input type="text" id="customer-name" name="customerName" placeholder="Juan Dela Cruz" required>
+
+          <label for="customer-phone">Contact Number</label>
+          <input type="tel" id="customer-phone" name="contactNumber" placeholder="09XX XXX XXXX" required>
+
+          <div class="delivery-location-field">
+            <label for="customer-location">Delivery Address (Comembo &amp; Nearby Vicinity)</label>
+            <input type="text" id="customer-location" name="deliveryAddress" placeholder="House/Bldg No., Street, Comembo / Pembo / BGC">
+          </div>
+
+          <div class="pickup-location-field">
+            <label for="pickup-time">Preferred Pickup Time</label>
+            <input type="text" id="pickup-time" name="pickupTime" placeholder="e.g. 6:30 PM Today">
+          </div>
+
+          <button type="submit" class="modal-submit-btn delivery-submit-btn">
+            PLACE DELIVERY ORDER
+          </button>
+          <button type="submit" class="modal-submit-btn pickup-submit-btn">
+            PLACE PICKUP ORDER
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ================= SIGN IN MODAL (PURE CSS :target) ================= -->
+    <div id="signin-modal" class="primo-modal">
+      <div class="primo-modal-box">
+        <div class="primo-modal-header">
+          <div>
+            <span class="modal-tag">PRIMO'S MEMBER ACCESS</span>
+            <h2 id="signin-modal-title">SIGN IN</h2>
+          </div>
+          <a href="#home-tour" class="modal-close" aria-label="Close">&times;</a>
+        </div>
+
+        <input type="radio" name="authMode" id="auth-mode-signin" class="auth-mode-radio" checked>
+        <input type="radio" name="authMode" id="auth-mode-register" class="auth-mode-radio">
+
+        <div class="auth-mode-tabs">
+          <label for="auth-mode-signin" class="auth-tab">SIGN IN</label>
+          <label for="auth-mode-register" class="auth-tab">CREATE ACCOUNT</label>
+        </div>
+
+        <form id="primo-auth-form" action="./Admin.html" method="get">
+          <div id="register-name-group">
+            <label for="auth-name">Full Name</label>
+            <input type="text" id="auth-name" name="name" placeholder="Your full name">
+          </div>
+
+          <label for="auth-email">Email Address</label>
+          <input type="email" id="auth-email" name="email" placeholder="you@example.com" required>
+
+          <label for="auth-password">Password</label>
+          <input type="password" id="auth-password" name="password" placeholder="Enter your password" minlength="4" required>
+
+          <button type="submit" class="modal-submit-btn signin-submit-btn">
+            SIGN IN
+          </button>
+          <button type="submit" class="modal-submit-btn register-submit-btn">
+            CREATE ACCOUNT
+          </button>
+        </form>
+      </div>
+    </div>
+</body>
+</html>

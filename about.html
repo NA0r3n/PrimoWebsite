@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primo's About Page</title>
+
+    <!-- Styling -->
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/navs.css"> 
+    <link rel="stylesheet" href="./styles/about-story.css">
+
+    <!-- Logo -->
+    <link rel="shortcut icon" href="./graphics/brand/logo.ico" type="image/x-icon">
+
+    <!-- Box Icons -->
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+      <a href="./index.html">
+        <img src="./graphics/brand/logo.svg" alt="Primo's logo" class="nav-logo">
+      </a>
+      <input type="checkbox" name="menu" id="menu">
+      <nav>
+        <ul>
+          <li><a href="./about.html" class="active">ABOUT</a></li>
+          <li><a href="./menu.html">MENU</a></li>
+          <li><a href="./branches.html">BRANCHES</a></li>
+          <li><a href="./franchise.html">FRANCHISE</a></li>
+        </ul>
+        <label for="menu" class="links-menu-wrapper">
+          <span>
+            Menu
+            <i class="bx bx-menu hamburger-btn"></i>
+          </span>
+        </label>
+      </nav>
+    </header>
+
+    <main>
+      <section id="story">
+        <div id="scenes">
+          <!-- Scene 1: Hero -->
+          <div class="scene scene-1" id="scene-1">
+            <div class="scene-1-copy">
+              <h1 class="bolder">MORE THAN JUST<br><span class="bold serif">WINGS.</span></h1>
+              <p class="desc reg">Get to know the story behind Primo's Bucket Wings.</p>
+            </div>
+
+            <img
+              src="./graphics/site/about-hero-wing.webp"
+              alt="Wing Feature Image"
+              class="media-slot wing-hero-slot"
+              data-slot="wing-hero"
+              loading="eager"
+            >
+          </div>
+
+          <!-- Scene 2: Diner to Unlimited Bucket Wings + Polaroid Row -->
+          <div class="scene scene-2" id="scene-2">
+            <div class="scene-2-top">
+              <h3>
+                <span class="bolder">FROM</span>
+                <span class="bold serif">Primo's Diner</span>
+              </h3>
+              <p class="desc light">
+                As Primo's grew, so did our vision. We evolved from a humble diner into a destination for flavorful wings and satisfying meals.
+              </p>
+            </div>
+
+            <div class="polaroid-row">
+              <div class="polaroid-card tilt-left">
+                <img src="./graphics/site/diner-humble-start-front.webp" alt="Primo's humble diner storefront and early guests where the story began" class="polaroid-img" data-slot="diner-photo-1" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-right">
+                <img src="./graphics/site/diner-evolution-table.webp" alt="Guests enjoying flavorful wings and meals at Primo's diner table" class="polaroid-img" data-slot="diner-photo-2" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-slight">
+                <img src="./graphics/site/diner-new-chapter-counter.webp" alt="Primo's diner evolving into the unlimited bucket wings chapter" class="polaroid-img" data-slot="diner-photo-3" loading="lazy">
+              </div>
+            </div>
+
+            <div class="scene-2-bottom">
+              <p class="desc light">A new chapter, with the same heart behind every serving.</p>
+              <h3>
+                <span class="bolder">TO UNLIMITED<br>BUCKET WINGS.</span>
+              </h3>
+            </div>
+          </div>
+
+          <!-- Scene 3: A Name That Feels Like Family -->
+          <div class="scene scene-3" id="scene-3">
+            <h2 class="scene-3-heading bolder">A NAME THAT<br>FEELS LIKE FAMILY.</h2>
+
+            <div class="scene-3-grid">
+              <img src="./graphics/site/family-diner-laughter.jpeg" alt="Friends and family sharing laughter and food at Primo's" class="media-slot storefront-slot" data-slot="storefront-photo" loading="lazy">
+              <p class="scene-3-copy light">
+                In Masbateño, <strong>Primo</strong> is a term of endearment for a friend who feels like family.
+                <br><br>
+                And that's what Primo's is all about: bringing people together over good food, shared laughter, and moments worth remembering.
+              </p>
+            </div>
+
+            <img src="./graphics/site/primo-family-crew.png" alt="The Primo's crew like family standing together behind every serving" class="media-slot crew-slot" data-slot="crew-photo" loading="lazy">
+          </div>
+
+          <!-- Scene 4: More Than Wings / It's About Being Together -->
+          <div class="scene scene-4" id="scene-4">
+            <div class="polaroid-scatter top-scatter">
+              <div class="polaroid-card tilt-left sm">
+                <img src="./graphics/site/shared-bucket-feast.jpg" alt="Shared buckets of wings ready for family and barkada meals" class="polaroid-img" data-slot="gather-1" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-right sm">
+                <img src="./graphics/site/spontaneous-food-trip-wings.png" alt="Crispy wings for a spontaneous food trip and catch-up with friends" class="polaroid-img" data-slot="gather-2" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-slight sm">
+                <img src="./graphics/site/another-bucket-wing.webp" alt="Another hot wing serving for a catch-up over food" class="polaroid-img" data-slot="gather-3" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-left sm">
+                <img src="./graphics/site/together-at-diner.webp" alt="Being together over Primo's wings in the diner" class="polaroid-img" data-slot="gather-4" loading="lazy">
+              </div>
+            </div>
+
+            <div class="scene-4-center">
+              <h2 class="scene-4-title bolder">MORE THAN WINGS.</h2>
+              <p class="scene-4-copy light">
+                To us, good food is even better when <strong>shared</strong>. Whether it's a meal with family, a catch-up with friends, or a spontaneous food trip, there's always room for another bucket.
+              </p>
+            </div>
+
+            <div class="polaroid-scatter bottom-scatter">
+              <div class="polaroid-card tilt-right sm">
+                <img src="./graphics/brand/shared-buffalo-bucket.jpeg" alt="Primo's Buffalo wings for sharing around the table" class="polaroid-img" data-slot="gather-5" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-left sm">
+                <img src="./graphics/brand/shared-garlic-parmesan-bucket.jpeg" alt="Garlic Parmesan wings passed around during a barkada meal" class="polaroid-img" data-slot="gather-6" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-slight sm">
+                <img src="./graphics/brand/shared-smokey-bbq-bucket.jpeg" alt="Smokey BBQ wings for a group table feast" class="polaroid-img" data-slot="gather-7" loading="lazy">
+              </div>
+              <div class="polaroid-card tilt-right sm">
+                <img src="./graphics/brand/together-party-wings-platter.jpeg" alt="Party wings platter made for sharing together with family and friends" class="polaroid-img" data-slot="gather-8" loading="lazy">
+              </div>
+            </div>
+
+            <h2 class="scene-4-footer-title bolder">IT'S ABOUT BEING<br>TOGETHER.</h2>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer">
+      <section id="wrapper">
+        <div class="history">
+          <h1 class="title">PRIMO'S UNLIMITED BUCKET WINGS</h1>
+          <h4 class="desc">The First and Original Unlimited Bucket Wings in Metro Manila. High quality homemade sauces and crunchy fried wings.</h4>
+        </div>
+        <div class="contact">
+          <h1 class="title">BRANCH HOTLINE</h1>
+          <ul>
+            <li>Taguig: +63 954 315 9849</li>
+            <li>Batangas: +63 956 351 1173</li>
+            <li>primosdinerph@gmail.com</li>
+          </ul>
+        </div>
+        <div class="service">
+          <h1 class="title">OPERATING HOURS</h1>
+          <ul>
+            <li>Dine-in & Delivery Services</li>
+            <li>Monday - Sunday: 11:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+
+</body>
+</html>

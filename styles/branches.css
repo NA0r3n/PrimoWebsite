@@ -1,0 +1,220 @@
+/* ================= ACTIVE NAV INDICATOR ================= */
+header nav ul li a:hover,
+header nav ul li a:focus-visible,
+header nav ul li a.active {
+  color: var(--primo-red, #ffcf40) !important;
+}
+
+header nav ul li a:hover::after,
+header nav ul li a:focus-visible::after,
+header nav ul li a.active::after {
+  width: 100%;
+}
+
+/* ================= BRANCHES PAGE ================= */
+#branches-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-red);
+  background-image:
+    linear-gradient(to right, var(--line-color) var(--line-thickness), transparent var(--line-thickness)),
+    linear-gradient(to bottom, var(--line-color) var(--line-thickness), transparent var(--line-thickness));
+  background-size: var(--grid-size) var(--grid-size);
+  color: #fff;
+  padding-top: 7rem;
+  box-sizing: border-box;
+}
+
+.branches-title {
+  position: relative;
+  height: 11rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.branches-title h1 {
+  margin: 0;
+  font-family: Outfit, Montserrat, sans-serif;
+  font-size: clamp(2.8rem, 7vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+#branches-page + footer {
+  margin-top: 0;
+}
+
+.branch-list {
+  position: relative;
+  width: 100%;
+  display: grid;
+  background: transparent;
+  padding: 3.5rem 1.25rem 7rem;
+  gap: 3.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.route-line {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3.2rem;
+  transform: translateX(-50%);
+  background: #efc0c0;
+  clip-path: polygon(
+    42% 0, 58% 0, 55% 8%, 67% 11%, 52% 15%, 65% 20%, 48% 25%,
+    61% 31%, 46% 36%, 64% 42%, 53% 48%, 68% 54%, 49% 60%,
+    62% 67%, 45% 73%, 58% 79%, 48% 86%, 64% 92%, 52% 100%,
+    35% 100%, 46% 91%, 38% 84%, 52% 78%, 37% 71%, 54% 64%,
+    40% 57%, 55% 51%, 36% 45%, 50% 39%, 34% 32%, 52% 26%,
+    37% 19%, 50% 13%, 35% 7%
+  );
+  opacity: 0.95;
+}
+
+.branch-card {
+  position: relative;
+  z-index: 1;
+  width: min(44rem, calc(100% - 2.5rem));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 19.5rem;
+  background: #141416;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 18px rgba(72, 0, 0, 0.22);
+  overflow: hidden;
+}
+
+.branch-card-left {
+  transform: translateX(-5.5rem);
+}
+
+.branch-card-right {
+  transform: translateX(5.5rem);
+}
+
+.branch-card-right .branch-photo {
+  order: 1;
+}
+
+.branch-card-right .branch-details {
+  order: 2;
+}
+
+.branch-card-left .branch-photo {
+  order: 2;
+}
+
+.branch-card-left .branch-details {
+  order: 1;
+}
+
+.branch-photo {
+  min-height: 19.5rem;
+  background: #0f0f12;
+}
+
+.branch-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.branch-details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.25rem 1.75rem;
+  box-sizing: border-box;
+}
+
+.branch-details h2 {
+  margin: 0 0 1.5rem;
+  font-family: Outfit, sans-serif;
+  font-size: clamp(1.7rem, 4.2vw, 2.35rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.branch-details dl {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.branch-details dl div {
+  display: grid;
+  grid-template-columns: 1.15rem 1fr;
+  align-items: start;
+  gap: 0.38rem;
+}
+
+.branch-details dt {
+  color: #ffcf40;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.branch-details dd {
+  margin: 0;
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: clamp(0.82rem, 1.8vw, 1rem);
+  line-height: 1.35;
+}
+
+.branch-details dd a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.branch-details dd a:hover {
+  color: #ffcf40;
+}
+
+@media (max-width: 768px) {
+  #branches-page {
+    padding-top: 5.5rem;
+  }
+
+  .branch-list {
+    padding: 1.1rem;
+    gap: 1.25rem;
+  }
+
+  .branch-card,
+  .branch-card-left,
+  .branch-card-right {
+    width: min(32rem, calc(100% - 1.8rem));
+    min-height: 15rem;
+    grid-template-columns: 1fr;
+    transform: none;
+  }
+
+  .branch-card-left .branch-photo,
+  .branch-card-left .branch-details {
+    order: initial;
+  }
+
+  .branch-photo {
+    min-height: 13rem;
+    grid-row: 1;
+  }
+
+  .branch-details {
+    min-height: 9.5rem;
+    grid-row: 2;
+    padding: 1.1rem 1rem;
+  }
+}

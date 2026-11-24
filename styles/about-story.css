@@ -1,0 +1,368 @@
+/* ================= ABOUT STORY PAGE ================= */
+#story {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: clip;
+  background-color: #0f0f12;
+  user-select: none;
+  color: #ffffff;
+  padding-top: 7rem;
+}
+
+@media (max-width: 400px) {
+  #story {
+    padding-top: 5.5rem;
+  }
+}
+
+#scenes {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-red, #f11b1b);
+  background-image:
+    linear-gradient(
+      to right,
+      var(--line-color, rgba(255, 165, 165, 0.45)) var(--line-thickness, 0.06rem),
+      transparent var(--line-thickness, 0.06rem)
+    ),
+    linear-gradient(
+      to bottom,
+      var(--line-color, rgba(255, 165, 165, 0.45)) var(--line-thickness, 0.06rem),
+      transparent var(--line-thickness, 0.06rem)
+    );
+  background-size: var(--grid-size, 5rem) var(--grid-size, 5rem);
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  max-width: 76rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.bold,
+.bolder,
+.reg,
+.lighter {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ================= DIRECT IMAGE SLOTS & POLAROIDS ================= */
+#scenes img.media-slot {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 2px dashed rgba(255, 255, 255, 0.55);
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.polaroid-card {
+  background-color: #ffffff;
+  padding: 0.55rem 0.55rem 1.45rem;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.polaroid-card.sm {
+  padding: 0.4rem 0.4rem 1.05rem;
+}
+
+#scenes img.polaroid-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  background-color: #ececef;
+  box-sizing: border-box;
+}
+
+.tilt-left {
+  transform: rotate(-4deg);
+}
+
+.tilt-right {
+  transform: rotate(4deg);
+}
+
+.tilt-slight {
+  transform: rotate(-1.5deg);
+}
+
+.polaroid-card.tilt-left:hover {
+  transform: rotate(-2deg) translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.42);
+}
+
+.polaroid-card.tilt-right:hover {
+  transform: rotate(2deg) translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.42);
+}
+
+.polaroid-card.tilt-slight:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.42);
+}
+
+/* ================= SCENE 1 ================= */
+.scene-1 {
+  min-height: calc(100vh - 7rem);
+  padding: 3.5rem 2rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.scene-1-copy {
+  max-width: 42rem;
+  z-index: 2;
+}
+
+.scene-1 h1 {
+  margin: 0;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.6rem, 7vw, 4.75rem);
+  text-transform: uppercase;
+}
+
+.scene-1 .desc {
+  margin-top: 1.15rem;
+  max-width: 34rem;
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.wing-hero-slot {
+  width: clamp(15rem, 32vw, 25rem);
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+}
+
+/* ================= SCENE 2 ================= */
+.scene-2 {
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.scene-2-top {
+  max-width: 30rem;
+  align-self: flex-start;
+  z-index: 2;
+}
+
+.scene-2-top h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4.5vw, 2.8rem);
+  line-height: 1.05;
+}
+
+.scene-2-top h3 .bolder {
+  text-transform: uppercase;
+}
+
+.scene-2-top .desc {
+  margin-top: 0.75rem;
+  max-width: 25rem;
+  font-size: clamp(0.92rem, 1.5vw, 1.1rem);
+  line-height: 1.4;
+}
+
+.polaroid-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.polaroid-row .polaroid-card {
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+}
+
+.scene-2-bottom {
+  max-width: 30rem;
+  align-self: flex-end;
+  text-align: right;
+  z-index: 2;
+}
+
+.scene-2-bottom .desc {
+  margin: 0 0 0.75rem auto;
+  max-width: 24rem;
+  font-size: clamp(0.92rem, 1.5vw, 1.1rem);
+  line-height: 1.4;
+}
+
+.scene-2-bottom h3 {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.02;
+  text-transform: uppercase;
+}
+
+/* ================= SCENE 3 ================= */
+.scene-3 {
+  padding: 4.5rem 2rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.scene-3-heading {
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+  line-height: 1.02;
+}
+
+.scene-3-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.storefront-slot {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.scene-3-copy {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+  line-height: 1.5;
+}
+
+.crew-slot {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+}
+
+/* ================= SCENE 4 ================= */
+.scene-4 {
+  padding: 4rem 2rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.polaroid-scatter {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.polaroid-scatter .polaroid-card {
+  width: 100%;
+  aspect-ratio: 1 / 1.15;
+}
+
+.scene-4-center {
+  max-width: 38rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.scene-4-title {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: clamp(2.2rem, 5.5vw, 3.75rem);
+  line-height: 1;
+}
+
+.scene-4-copy {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.55vw, 1.15rem);
+  line-height: 1.48;
+}
+
+.scene-4-footer-title {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: clamp(2.2rem, 5.5vw, 3.75rem);
+  line-height: 1.02;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .scene-1 {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: auto;
+    padding: 2.5rem 1.25rem 3.5rem;
+  }
+
+  .wing-hero-slot {
+    width: 100%;
+    max-width: 24rem;
+    align-self: center;
+  }
+
+  .polaroid-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .polaroid-row .polaroid-card {
+    max-width: 22rem;
+    margin: 0 auto;
+  }
+
+  .scene-3-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .polaroid-scatter {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .scene-2,
+  .scene-3,
+  .scene-4 {
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .polaroid-scatter {
+    grid-template-columns: 1fr;
+    max-width: 18rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .polaroid-card {
+    transition: none;
+  }
+
+  .polaroid-card.tilt-left:hover,
+  .polaroid-card.tilt-right:hover,
+  .polaroid-card.tilt-slight:hover {
+    transform: none;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+  }
+}
