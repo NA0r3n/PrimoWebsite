@@ -46,13 +46,12 @@
 #hero::before {
     content: "";
     position: absolute;
-    inset: -5%; /* Extra bleed room for parallax/zoom movement */
+    inset: -5%;
     z-index: -1;
     background: 
         linear-gradient(115deg, rgba(15, 15, 18, 0.94) 15%, rgba(122, 12, 20, 0.72) 60%, rgba(15, 15, 18, 0.85) 100%),
         url('../graphics/site/hero-home_happy-all.jpeg') center/cover no-repeat;
     will-change: transform;
-    /* Ambient slow drift; replaced by scroll transform if JS snippet below is added */
     animation: subtleZoom 18s ease-in-out infinite alternate;
 }
 
@@ -174,7 +173,7 @@
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Buttons */
+/* Buttons & Action Links */
 #hero > .wrapper > #btns-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -183,8 +182,10 @@
     margin-bottom: 0.75rem;
 }
 
-#hero > .wrapper > #btns-wrapper > button {
+#hero > .wrapper > #btns-wrapper > button,
+#hero > .wrapper > #btns-wrapper > a {
     border: none;
+    text-decoration: none;
     cursor: pointer;
     color: #fff;
     font-family: Inter, sans-serif;
@@ -204,29 +205,34 @@
     transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-#hero > .wrapper > #btns-wrapper > button:hover {
+#hero > .wrapper > #btns-wrapper > button:hover,
+#hero > .wrapper > #btns-wrapper > a:hover {
     transform: translateY(-3px);
 }
 
-#hero > .wrapper > #btns-wrapper > button.primary {
+#hero > .wrapper > #btns-wrapper > button.primary,
+#hero > .wrapper > #btns-wrapper > a.primary {
     background-color: #E60000;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0px 8px 24px rgba(230, 0, 0, 0.4);
 }
 
-#hero > .wrapper > #btns-wrapper > button.primary:hover {
+#hero > .wrapper > #btns-wrapper > button.primary:hover,
+#hero > .wrapper > #btns-wrapper > a.primary:hover {
     background-color: #FF1414;
     box-shadow: 0px 12px 30px rgba(255, 20, 20, 0.55);
 }
 
-#hero > .wrapper > #btns-wrapper > button.secondary {
+#hero > .wrapper > #btns-wrapper > button.secondary,
+#hero > .wrapper > #btns-wrapper > a.secondary {
     background-color: rgba(20, 20, 24, 0.85);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.16);
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-#hero > .wrapper > #btns-wrapper > button.secondary:hover {
+#hero > .wrapper > #btns-wrapper > button.secondary:hover,
+#hero > .wrapper > #btns-wrapper > a.secondary:hover {
     background-color: rgba(35, 35, 42, 0.95);
     border-color: rgba(255, 255, 255, 0.3);
 }
@@ -283,7 +289,7 @@
 @media (max-width: 768px) {
     #hero {
         padding: 7.5rem 1.25rem 3.5rem;
-        min-height: 100svh; /* Safe viewport height for mobile browsers */
+        min-height: 100svh;
         height: auto;
     }
 
@@ -302,7 +308,7 @@
 
     #hero > .wrapper > h1 {
         font-size: clamp(2rem, 8.5vw, 2.5rem);
-        line-height: 1.12; /* Fixed from 0.8 so multi-line headings don't overlap */
+        line-height: 1.12;
     }
 
     #hero > .wrapper > .tagline {
@@ -315,11 +321,12 @@
         line-height: 1.6;
     }
 
-    #hero > .wrapper > #btns-wrapper > button {
+    #hero > .wrapper > #btns-wrapper > button,
+    #hero > .wrapper > #btns-wrapper > a {
         flex: 1 1 140px;
         max-width: none;
         height: 46px;
-        font-size: 0.65rem;
+        font-size: 0.68rem;
     }
   
     #hero > .wrapper > .achievements {

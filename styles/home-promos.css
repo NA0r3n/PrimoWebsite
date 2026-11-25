@@ -47,9 +47,9 @@
 #promos > .posters {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem; /* Slightly cleaner separation than 0.25rem */
+  gap: 1rem;
   padding: 0 1.25rem;
-  max-width: 58rem; /* Changed from 94rem (1504px) to 58rem (~928px) so posters aren't giant */
+  max-width: 58rem;
   margin: 0 auto;
   align-items: start;
 }
@@ -94,7 +94,10 @@
   margin: 0;
 }
 
-#promos > .posters > .promo-column > .cta > button {
+#promos > .posters > .promo-column > .cta > button,
+#promos > .posters > .promo-column > .cta > a {
+  display: inline-block;
+  text-decoration: none;
   font-family: Inter, sans-serif;
   font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 700;
@@ -108,7 +111,8 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-#promos > .posters > .promo-column > .cta > button:hover {
+#promos > .posters > .promo-column > .cta > button:hover,
+#promos > .posters > .promo-column > .cta > a:hover {
   transform: translateY(-4px);
   background-color: rgba(242, 7, 7, 0.15);
   box-shadow: 0 10px 25px rgba(242, 7, 7, 0.4);
@@ -117,7 +121,7 @@
 @media (max-width: 768px) {
   #promos > .posters {
     grid-template-columns: 1fr;
-    max-width: 26rem; /* Caps mobile poster width at ~416px so it fits comfortably on screen */
+    max-width: 26rem;
     gap: 1.25rem;
   }
 
@@ -125,7 +129,8 @@
     gap: 1.25rem;
   }
 
-  #promos > .posters > .promo-column > .cta > button {
+  #promos > .posters > .promo-column > .cta > button,
+  #promos > .posters > .promo-column > .cta > a {
     padding: 0.75rem 2.25rem;
     border-width: 4px;
   }

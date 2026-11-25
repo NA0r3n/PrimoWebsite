@@ -2,7 +2,9 @@
 #franchise-page {
   background: #141416;
   color: #ffffff;
-  padding-top: 90px; /* clears the fixed navbar */
+  padding-top: 7.5rem;
+  overflow-x: clip;
+  width: 100%;
 }
 
 /* ================= FRANCHISE INTRO ================= */
@@ -34,6 +36,7 @@
   font-size: 1.02rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.88);
+  overflow-wrap: break-word;
 }
 
 .franchise-intro .hl {
@@ -47,7 +50,7 @@
   margin: 0 auto;
   padding: 1rem 1.5rem 4.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
   align-items: start;
 }
@@ -59,6 +62,7 @@
   overflow: hidden;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
   transition: transform 0.25s ease, border-color 0.25s ease;
+  max-width: 100%;
 }
 
 .visual-block:hover {
@@ -69,6 +73,7 @@
 .visual-block img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
@@ -120,6 +125,7 @@
   border-radius: 18px;
   padding: 1.75rem;
   transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  min-width: 0;
 }
 
 .step-card:hover {
@@ -153,6 +159,7 @@
   line-height: 1.65;
   font-size: 0.95rem;
   color: rgba(255, 255, 255, 0.9);
+  overflow-wrap: break-word;
 }
 
 /* ================= FRANCHISE CONTACT ================= */
@@ -211,6 +218,7 @@
   border-radius: 16px;
   padding: 1.35rem 1.5rem;
   transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  min-width: 0;
 }
 
 .contact-card:hover {
@@ -238,4 +246,74 @@
   margin-top: 0.2rem;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.82);
+  overflow-wrap: anywhere;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .franchise-visuals {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    padding: 0.75rem 1.25rem 3.5rem;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #franchise-page {
+    padding-top: 6.5rem;
+  }
+
+  .franchise-intro {
+    padding: 2.25rem 1.15rem 1.75rem;
+  }
+
+  .franchise-intro .intro-copy {
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  .franchise-steps,
+  .franchise-contact {
+    padding: 3rem 1.15rem;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .step-card {
+    padding: 1.35rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .contact-card {
+    padding: 1.1rem 1.15rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #franchise-page {
+    padding-top: 5.5rem;
+  }
+
+  .franchise-intro {
+    padding: 1.75rem 0.9rem 1.5rem;
+  }
+
+  .franchise-visuals {
+    padding: 0.5rem 0.9rem 2.75rem;
+    gap: 1rem;
+  }
+
+  .franchise-steps,
+  .franchise-contact {
+    padding: 2.5rem 0.9rem;
+  }
 }
