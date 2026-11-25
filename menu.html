@@ -61,82 +61,99 @@
             <a href="#menu-page" class="close-btn" aria-label="Close planner">X</a>
         </div>
 
-        <form id="planner-submit-form" action="mailto:primosdinerph@gmail.com" method="post" enctype="text/plain" style="display:contents;">
+        <form id="planner-submit-form" action="#craving-planner" method="get" style="display:contents;">
             <div class="body">
-                <p style="font-size:0.78rem;color:#b4b4bc;margin:0 0 0.85rem;line-height:1.45;">
-                    Check the deals, platters, or fries you want to include in your order guide:
-                </p>
-                <div class="css-planner-checklist">
-                    <label class="css-planner-item">
-                        <span class="css-planner-item-info">
-                            <input type="checkbox" name="items" value="Sulit Unli Deal (P499/head)">
-                            <span>
-                                <span class="css-planner-item-name">SULIT UNLI DEAL</span>
-                                <span class="css-planner-item-sub">All 11 Flavors + Unli Rice + Dip</span>
-                            </span>
-                        </span>
-                        <span class="css-planner-item-price">₱499</span>
-                    </label>
-                    <label class="css-planner-item">
-                        <span class="css-planner-item-info">
-                            <input type="checkbox" name="items" value="Go Solo (P139)">
-                            <span>
-                                <span class="css-planner-item-name">GO SOLO</span>
-                                <span class="css-planner-item-sub">2 Pcs Wings + 1 Flavor + Rice</span>
-                            </span>
-                        </span>
-                        <span class="css-planner-item-price">₱139</span>
-                    </label>
-                    <label class="css-planner-item">
-                        <span class="css-planner-item-info">
-                            <input type="checkbox" name="items" value="Primo Meal (P229)">
-                            <span>
-                                <span class="css-planner-item-name">PRIMO MEAL</span>
-                                <span class="css-planner-item-sub">4 Pcs Wings + 1 Flavor + Rice</span>
-                            </span>
-                        </span>
-                        <span class="css-planner-item-price">₱229</span>
-                    </label>
-                    <label class="css-planner-item">
-                        <span class="css-planner-item-info">
-                            <input type="checkbox" name="items" value="Double Sampler (P449)">
-                            <span>
-                                <span class="css-planner-item-name">DOUBLE SAMPLER</span>
-                                <span class="css-planner-item-sub">8 Pcs Wings • Up to 2 Flavors</span>
-                            </span>
-                        </span>
-                        <span class="css-planner-item-price">₱449</span>
-                    </label>
-                    <label class="css-planner-item">
-                        <span class="css-planner-item-info">
-                            <input type="checkbox" name="items" value="Triple Sampler (P659)">
-                            <span>
-                                <span class="css-planner-item-name">TRIPLE SAMPLER</span>
-                                <span class="css-planner-item-sub">12 Pcs Wings • Up to 3 Flavors</span>
-                            </span>
-                        </span>
-                        <span class="css-planner-item-price">₱659</span>
-                    </label>
-                    <label class="css-planner-item">
-                        <span class="css-planner-item-info">
-                            <input type="checkbox" name="items" value="Party Wings 24 Pieces (P1,200)">
-                            <span>
-                                <span class="css-planner-item-name">PARTY WINGS 24 PCS</span>
-                                <span class="css-planner-item-sub">24 Pcs • Up to 4 Flavors &amp; Dips</span>
-                            </span>
-                        </span>
-                        <span class="css-planner-item-price">₱1,200</span>
-                    </label>
-                    <label class="css-planner-item">
-                        <span class="css-planner-item-info">
-                            <input type="checkbox" name="items" value="Flavored Fries (P99)">
-                            <span>
-                                <span class="css-planner-item-name">FLAVORED FRIES</span>
-                                <span class="css-planner-item-sub">Plain / Spicy BBQ / Sour Cream / Cheese</span>
-                            </span>
-                        </span>
-                        <span class="css-planner-item-price">₱99</span>
-                    </label>
+                <!-- Flavor Picker Prototype (Pure HTML & CSS) -->
+                <div class="planner-flavor-picker" aria-label="Flavor selector for GO SOLO">
+                    <div class="planner-flavor-header">
+                        <h3 class="planner-flavor-title">Choose Flavor for GO SOLO</h3>
+                        <span class="planner-flavor-limit">0 selected (up to 1)</span>
+                    </div>
+                    <div class="planner-flavor-grid">
+                        <button type="button" class="flavor-option-btn">Primo's Buffalo</button>
+                        <button type="button" class="flavor-option-btn">Jack Daniel's</button>
+                        <button type="button" class="flavor-option-btn">Primo's Sisig</button>
+                        <button type="button" class="flavor-option-btn">Salted Egg</button>
+                        <button type="button" class="flavor-option-btn">Cheese Bomb</button>
+                        <button type="button" class="flavor-option-btn">Garlic Parmesan</button>
+                        <button type="button" class="flavor-option-btn">Honey Mustard</button>
+                        <button type="button" class="flavor-option-btn">Smokey BBQ</button>
+                        <button type="button" class="flavor-option-btn">Korean Yangnyeom</button>
+                        <button type="button" class="flavor-option-btn">Honey Sriracha</button>
+                        <button type="button" class="flavor-option-btn">Salt &amp; Pepper</button>
+                    </div>
+                    <div class="planner-flavor-actions">
+                        <a href="#menu-page" class="flavor-cancel-btn">Cancel</a>
+                        <a href="#craving-planner" class="flavor-confirm-btn">Add to Planner</a>
+                    </div>
+                </div>
+
+                <!-- Live Order Status Prototype (Pure HTML & CSS) -->
+                <div id="primo-order-tracker-box" class="planner-tracker-box" aria-label="Live order status">
+                    <div class="planner-tracker-top">
+                        <div>
+                            <span class="planner-tracker-eyebrow">LIVE ORDER STATUS</span>
+                            <span class="planner-tracker-sync">Auto-syncing (8s)</span>
+                        </div>
+                        <a href="#menu-page" class="planner-tracker-remove">Remove</a>
+                    </div>
+                    <div class="planner-tracker-controls">
+                        <input
+                            type="text"
+                            id="tracker-order-id"
+                            name="trackerOrderId"
+                            class="planner-input planner-tracker-input"
+                            value="ORD-MWW4CD4W"
+                            placeholder="Enter Order ID"
+                            aria-label="Order ID"
+                        >
+                        <a href="#primo-order-tracker-box" class="planner-tracker-sync-btn">Sync Now</a>
+                    </div>
+                    <p class="planner-tracker-status">
+                        Order ORD-MWW4CD4W — Pending (not yet seen by staff).
+                    </p>
+                </div>
+
+                <!-- Default Empty Bucket Prototype -->
+                <div class="empty-state" aria-label="Empty craving planner prototype">
+                    <svg class="bucket-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                        <path d="M5 9h14l-1.5 11a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 9Z"></path>
+                        <path d="M8 9V6a4 4 0 0 1 8 0v3"></path>
+                    </svg>
+                    <h3>Your craving planner is empty</h3>
+                    <p>Tap <strong>+ ADD</strong> on any deal, platter, or flavored fries to build your order guide.</p>
+                </div>
+
+                <!-- Sample Order Items in Planner -->
+                <div class="planner-items-list" aria-label="Sample planned items">
+                    <div class="planner-item-card">
+                        <div class="planner-item-top">
+                            <div class="planner-item-headings">
+                                <span class="planner-item-subheader">BUSOLVE SOLO · SAMPLE ORDER</span>
+                                <span class="planner-item-title">GO SOLO</span>
+                            </div>
+                            <div class="planner-item-right">
+                                <span class="planner-item-price">₱139</span>
+                                <a href="#craving-planner" class="planner-remove-btn">Remove</a>
+                            </div>
+                        </div>
+                        <p class="planner-item-desc">2 Pcs Chicken Wings + Steamed Rice</p>
+                        <div class="planner-item-flavors">Flavor: Primo's Buffalo</div>
+                    </div>
+
+                    <div class="planner-item-card">
+                        <div class="planner-item-top">
+                            <div class="planner-item-headings">
+                                <span class="planner-item-subheader">CRISPY GOLDEN SIDES · SAMPLE ORDER</span>
+                                <span class="planner-item-title">SOUR CREAM FRIES</span>
+                            </div>
+                            <div class="planner-item-right">
+                                <span class="planner-item-price">₱99</span>
+                                <a href="#craving-planner" class="planner-remove-btn">Remove</a>
+                            </div>
+                        </div>
+                        <p class="planner-item-desc">Tangy herb and sour cream seasoning on crispy fries.</p>
+                    </div>
                 </div>
             </div>
 
@@ -171,15 +188,20 @@
                             id="order-notes"
                             name="orderNotes"
                             class="planner-input"
-                            placeholder="Flavors &amp; extra dip notes"
+                            placeholder="Notes (optional)"
                         >
                     </div>
-                    <button type="submit" class="btn-submit-order">SEND ORDER GUIDE VIA EMAIL</button>
+                    <button type="submit" class="btn-submit-order">SUBMIT ORDER GUIDE</button>
+                </div>
+
+                <div class="total-row">
+                    <span class="total-label">Estimated Total:</span>
+                    <span class="total-amount">₱ 238</span>
                 </div>
 
                 <div class="actions">
                     <button type="reset" class="btn-clear">CLEAR</button>
-                    <a href="tel:+639543159849" class="btn-copy" style="text-align:center;text-decoration:none;">CALL HOTLINE</a>
+                    <a href="#craving-planner" class="btn-copy">COPY ORDER SUMMARY</a>
                 </div>
                 <a href="https://www.facebook.com/primosunlimited" target="_blank" rel="noopener noreferrer" class="btn-fb-send">SEND TO PRIMO'S FB PAGE</a>
             </div>
@@ -193,7 +215,6 @@
                 src="./graphics/site/Chicken Picture.png"
                 alt="Wings for Whatever You're Craving — Primo's Unlimited Bucket Wings"
                 class="menu-hero-bg"
-                
             >
             <div class="menu-hero-inner">
                 <div class="menu-hero-copy">
@@ -250,8 +271,54 @@
                     <span class="unli-label">DINE-IN ONLY • UNLI RATE</span>
                     <div class="unli-price">₱499</div>
                     <div class="unli-sub">PER HEAD</div>
-                    <a href="#craving-planner" class="unli-cta-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
+                    <a href="#craving-planner" class="unli-cta-btn add-planner-btn">
                         + ADD UNLI DEAL ₱499
+                    </a>
+                </div>
+            </div>
+
+            <!-- Custom Sulit Promo Banner (Admin-Created Sulit Style Deal) -->
+            <div class="unli-card sulit-promo-card">
+                <div class="unli-left">
+                    <span class="unli-pill">BARKADA SULIT PROMO • LIMITED TIME</span>
+                    <h2>SULIT BARKADA COMBO + 2 FRIES</h2>
+                    <p class="unli-subcopy">
+                        16 pcs crispy wings in up to <strong>4 Signature Flavors</strong> + 2 flavored fries + 2 creamy ranch dips.
+                    </p>
+
+                    <div class="unli-perks">
+                        <div class="perk-box">
+                            <i class="bx bx-food-menu"></i>
+                            <div>
+                                <strong>16 Pcs Wings</strong>
+                                <span>Up to 4 flavors</span>
+                            </div>
+                        </div>
+                        <div class="perk-box">
+                            <i class="bx bx-dish"></i>
+                            <div>
+                                <strong>2 Flavored Fries</strong>
+                                <span>Choice of 4 seasonings</span>
+                            </div>
+                        </div>
+                        <div class="perk-box">
+                            <i class="bx bx-bowl-hot"></i>
+                            <div>
+                                <strong>2 Ranch Dips</strong>
+                                <span>Included in bundle</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-img-placeholder banner-img-placeholder">Sulit Promo Banner Photo Placeholder</div>
+                </div>
+
+                <div class="unli-right">
+                    <span class="unli-label">DINE-IN &amp; TAKEOUT • BUNDLE</span>
+                    <div class="unli-price">₱599</div>
+                    <div class="unli-sub">PER COMBO</div>
+                    <a href="#craving-planner" class="unli-cta-btn add-planner-btn">
+                        + ADD COMBO ₱599
                     </a>
                 </div>
             </div>
@@ -267,6 +334,7 @@
             <div class="deals-grid">
                 <article class="deal-card">
                     <div>
+                        <div class="menu-img-placeholder">Deal Photo Placeholder · Go Solo</div>
                         <div class="deal-top">
                             <div class="deal-meta">
                                 <span class="deal-tag">BUSOLVE SOLO</span>
@@ -275,17 +343,17 @@
                             <span class="deal-price">₱139</span>
                         </div>
                         <p class="deal-desc">2 Pcs Chicken Wings, 1 Choice of Flavor + Steamed Rice</p>
+                        <p class="sold-out-note">Sold out for now — check back shortly!</p>
                     </div>
                     <div class="deal-footer">
                         <span>2 Pcs • 1 Flavor</span>
-                        <a href="#craving-planner" class="add-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
-                            + ADD
-                        </a>
+                        <a href="#craving-planner" class="add-btn add-planner-btn">+ ADD</a>
                     </div>
                 </article>
 
                 <article class="deal-card">
                     <div>
+                        <div class="menu-img-placeholder">Deal Photo Placeholder · Primo Meal</div>
                         <div class="deal-top">
                             <div class="deal-meta">
                                 <span class="deal-tag">MOST POPULAR SOLO</span>
@@ -294,17 +362,17 @@
                             <span class="deal-price">₱229</span>
                         </div>
                         <p class="deal-desc">4 Pcs Chicken Wings, 1 Choice of Flavor + Steamed Rice</p>
+                        <p class="sold-out-note">Sold out for now — check back shortly!</p>
                     </div>
                     <div class="deal-footer">
                         <span>4 Pcs • 1 Flavor</span>
-                        <a href="#craving-planner" class="add-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
-                            + ADD
-                        </a>
+                        <a href="#craving-planner" class="add-btn add-planner-btn">+ ADD</a>
                     </div>
                 </article>
 
                 <article class="deal-card">
                     <div>
+                        <div class="menu-img-placeholder">Deal Photo Placeholder · Double Sampler</div>
                         <div class="deal-top">
                             <div class="deal-meta">
                                 <span class="deal-tag">DUO BUCKET</span>
@@ -313,17 +381,17 @@
                             <span class="deal-price">₱449</span>
                         </div>
                         <p class="deal-desc">8 Pcs Chicken Wings with up to 2 Signature Flavors</p>
+                        <p class="sold-out-note">Sold out for now — check back shortly!</p>
                     </div>
                     <div class="deal-footer">
                         <span>8 Pcs • 2 Flavors</span>
-                        <a href="#craving-planner" class="add-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
-                            + ADD
-                        </a>
+                        <a href="#craving-planner" class="add-btn add-planner-btn">+ ADD</a>
                     </div>
                 </article>
 
                 <article class="deal-card">
                     <div>
+                        <div class="menu-img-placeholder">Deal Photo Placeholder · Triple Sampler</div>
                         <div class="deal-top">
                             <div class="deal-meta">
                                 <span class="deal-tag">TRIO BUCKET</span>
@@ -332,12 +400,11 @@
                             <span class="deal-price">₱659</span>
                         </div>
                         <p class="deal-desc">12 Pcs Chicken Wings with up to 3 Signature Flavors</p>
+                        <p class="sold-out-note">Sold out for now — check back shortly!</p>
                     </div>
                     <div class="deal-footer">
                         <span>12 Pcs • 3 Flavors</span>
-                        <a href="#craving-planner" class="add-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
-                            + ADD
-                        </a>
+                        <a href="#craving-planner" class="add-btn add-planner-btn">+ ADD</a>
                     </div>
                 </article>
 
@@ -346,13 +413,13 @@
                         <span class="party-tag">BARKADA &amp; PARTY SPECIAL</span>
                         <h3>PARTY WINGS <span>24 PIECES</span></h3>
                         <p>Loaded party platter featuring 24 crispy chicken wings, up to 4 signature flavors, and dips.</p>
+                        <p class="sold-out-note">Sold out for now — check back shortly!</p>
                     </div>
+                    <div class="menu-img-placeholder party-img-placeholder">Platter Photo Placeholder</div>
                     <div class="party-box">
                         <div class="party-price-label">PLATTER PRICE</div>
                         <div class="party-price">₱1,200</div>
-                        <a href="#craving-planner" class="party-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
-                            + ADD PLATTER
-                        </a>
+                        <a href="#craving-planner" class="party-btn add-planner-btn">+ ADD PLATTER</a>
                     </div>
                 </div>
             </div>
@@ -373,60 +440,60 @@
                     <article class="fry-card">
                         <div class="fry-body">
                             <div>
+                                <div class="menu-img-placeholder fry-img-placeholder">Fries Photo · Plain</div>
                                 <div class="fry-title-row">
                                     <h3>PLAIN FRIES</h3>
                                     <span>₱99</span>
                                 </div>
                                 <p>Classic golden salted fries, hot and crispy.</p>
+                                <p class="sold-out-note">Sold out for now — check back shortly!</p>
                             </div>
-                            <a href="#craving-planner" class="fry-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
-                                + ADD FRIES (₱99)
-                            </a>
+                            <a href="#craving-planner" class="fry-btn add-planner-btn">+ ADD FRIES (₱99)</a>
                         </div>
                     </article>
 
                     <article class="fry-card">
                         <div class="fry-body">
                             <div>
+                                <div class="menu-img-placeholder fry-img-placeholder">Fries Photo · Spicy BBQ</div>
                                 <div class="fry-title-row">
                                     <h3>SPICY BBQ</h3>
                                     <span>₱99</span>
                                 </div>
                                 <p>Smoky barbecue dust with a bold chili kick.</p>
+                                <p class="sold-out-note">Sold out for now — check back shortly!</p>
                             </div>
-                            <a href="#craving-planner" class="fry-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
-                                + ADD FRIES (₱99)
-                            </a>
+                            <a href="#craving-planner" class="fry-btn add-planner-btn">+ ADD FRIES (₱99)</a>
                         </div>
                     </article>
 
                     <article class="fry-card">
                         <div class="fry-body">
                             <div>
+                                <div class="menu-img-placeholder fry-img-placeholder">Fries Photo · Sour Cream</div>
                                 <div class="fry-title-row">
                                     <h3>SOUR CREAM</h3>
                                     <span>₱99</span>
                                 </div>
                                 <p>Tangy herb and sour cream seasoning on crispy fries.</p>
+                                <p class="sold-out-note">Sold out for now — check back shortly!</p>
                             </div>
-                            <a href="#craving-planner" class="fry-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
-                                + ADD FRIES (₱99)
-                            </a>
+                            <a href="#craving-planner" class="fry-btn add-planner-btn">+ ADD FRIES (₱99)</a>
                         </div>
                     </article>
 
                     <article class="fry-card">
                         <div class="fry-body">
                             <div>
+                                <div class="menu-img-placeholder fry-img-placeholder">Fries Photo · Cheese</div>
                                 <div class="fry-title-row">
                                     <h3>PRIMO'S CHEESE</h3>
                                     <span>₱99</span>
                                 </div>
                                 <p>Savory cheddar cheese powder tossed generously.</p>
+                                <p class="sold-out-note">Sold out for now — check back shortly!</p>
                             </div>
-                            <a href="#craving-planner" class="fry-btn add-planner-btn" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;">
-                                + ADD FRIES (₱99)
-                            </a>
+                            <a href="#craving-planner" class="fry-btn add-planner-btn">+ ADD FRIES (₱99)</a>
                         </div>
                     </article>
                 </div>
@@ -459,6 +526,6 @@
         </section>
     </footer>
 
-    </body>
+</body>
 
 </html>

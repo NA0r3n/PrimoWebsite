@@ -59,6 +59,7 @@
   .stat span{color:var(--muted);font-size:14px}
 
   .panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:22px}
+  .panel-title{font-family:var(--display);font-size:16px;margin-bottom:12px}
   .row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
   label.field{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700}
   input,select{padding:10px 12px;border:1px solid var(--line);border-radius:8px;min-width:120px;background:#fff}
@@ -67,6 +68,7 @@
   .btn.alt{background:var(--ink)}
   .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
   .btn.sm{padding:8px 12px;font-size:14px}
+  .btn.xs{padding:6px 10px;font-size:12px}
 
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
   .tbl{background:var(--paper);border:1px solid var(--line);border-left:8px solid var(--ok);border-radius:10px;padding:14px}
@@ -78,29 +80,89 @@
   .acts{display:flex;gap:8px}
   .acts + .acts{margin-top:8px}
   .acts select{flex:1;min-width:0;padding:8px}
-  .unli{background:var(--red);color:#fff;border-radius:12px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}
-  .unli b{font-family:var(--display);font-size:22px;display:block}
-  .unli .big{font-family:var(--display);font-size:42px}
-  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
-  .menu-grid .panel{margin-bottom:0}
-  .menu-grid h2{font-family:var(--display);font-size:20px;color:var(--red);margin-bottom:8px}
-  td.price{text-align:right;font-weight:700}
-  .note{color:var(--muted);font-size:13px}
+
+  /* Upgraded Admin Menu, Sulit Banner & Deal Edit Controls */
+  .menu-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+  .menu-head .pill{background:#EFE9E6;color:var(--ink);padding:5px 11px;border-radius:999px;font-size:12px;font-weight:800}
+
+  .sulit-admin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px;margin-bottom:22px}
+  .unli{background:var(--red);color:#fff;border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;border:2px solid #B30F08}
+  .unli.secondary{background:#1F1717;border-color:#E3180F}
+  .unli-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .unli-pill-tag{display:inline-block;background:rgba(0,0,0,0.3);color:#FFCF40;font-size:11px;font-weight:800;letter-spacing:0.05em;padding:3px 9px;border-radius:999px;margin-bottom:6px;text-transform:uppercase}
+  .unli b{font-family:var(--display);font-size:21px;display:block;line-height:1.15}
+  .unli .sub-copy{font-size:13px;opacity:0.92;margin-top:4px;display:block;line-height:1.45}
+  .unli .big{font-family:var(--display);font-size:38px;white-space:nowrap}
+  .unli-perks-strip{display:flex;flex-wrap:wrap;gap:6px}
+  .unli-perks-strip span{background:rgba(255,255,255,0.14);font-size:11.5px;font-weight:700;padding:4px 9px;border-radius:6px}
+  .unli-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.2)}
+  .unli-actions-btns{display:flex;align-items:center;gap:8px}
+  .btn-on-dark{background:#fff;color:var(--ink);border:0;border-radius:7px;padding:6px 11px;font-size:12px;font-weight:800;text-decoration:none;display:inline-block}
+  .btn-on-dark:hover{background:#FFCF40}
+
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+  .menu-grid .panel{margin-bottom:0;border:2px solid var(--line)}
+  .menu-grid h2{font-family:var(--display);font-size:19px;color:var(--red);margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .menu-grid h2 span{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em}
+
+  .deal-admin-list{display:flex;flex-direction:column;gap:10px}
+  .deal-item-wrap{border:1px solid var(--line);border-radius:10px;background:#FCF9F7;overflow:hidden}
+  .deal-admin-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px}
+  .deal-admin-left{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
+  .img-slot{width:54px;height:54px;border-radius:8px;border:1.5px dashed #C8B8B2;background:#F3ECE8;color:var(--muted);font-size:10px;font-weight:800;text-transform:uppercase;display:flex;align-items:center;justify-content:center;text-align:center;padding:4px;flex-shrink:0}
+  .deal-admin-info{min-width:0}
+  .deal-admin-name{font-weight:800;font-size:14px;color:var(--ink)}
+  .deal-admin-meta{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .deal-admin-right{display:flex;align-items:center;gap:7px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
+  .deal-chk{display:none}
+  .deal-state-text{font-size:11px;font-weight:800;color:var(--ok);min-width:22px;text-align:right}
+  .deal-chk:not(:checked) ~ .deal-state-text{color:var(--muted)}
+  .deal-chk:not(:checked) ~ .sw{background:#C9C0BC}
+  .deal-chk:not(:checked) ~ .sw::after{left:3px}
+  .deal-chk:checked ~ .sw{background:var(--ok)}
+  .deal-chk:checked ~ .sw::after{left:23px}
+  .deal-chk:not(:checked) ~ .deal-price-tag{text-decoration:line-through;color:var(--muted)}
+  .deal-price-tag{font-weight:900;font-size:14px;color:var(--ink);white-space:nowrap}
+
+  /* Pure CSS Expandable Edit Drawer using <details> */
+  details.edit-drawer > summary{list-style:none;background:#EFE9E6;color:var(--ink);border:1px solid #D8CEC9;border-radius:7px;padding:6px 10px;font-size:12px;font-weight:800;cursor:pointer;user-select:none;display:inline-block}
+  details.edit-drawer > summary::-webkit-details-marker{display:none}
+  details.edit-drawer[open] > summary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .edit-box{background:#F6F1EE;border-top:1px solid var(--line);padding:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px;margin-top:8px}
+  .edit-box label.field{font-size:11.5px}
+  .edit-box input,.edit-box select{padding:7px 9px;font-size:12.5px;min-width:0;width:100%}
+  .edit-box-full{grid-column:1 / -1}
+  .edit-box-actions{grid-column:1 / -1;display:flex;justify-content:flex-end;gap:8px;margin-top:2px}
+
+  .banner-edit-details{width:100%}
+  .banner-edit-details > summary{list-style:none;background:#fff;color:var(--ink);border-radius:7px;padding:6px 11px;font-size:12px;font-weight:800;cursor:pointer;display:inline-block}
+  .banner-edit-details > summary::-webkit-details-marker{display:none}
+  .banner-edit-details[open] > summary{background:#FFCF40}
+  .banner-edit-form{background:#fff;color:var(--ink);border-radius:10px;padding:12px;margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:9px}
+  .banner-edit-form label.field{font-size:11.5px}
+  .banner-edit-form input,.banner-edit-form select{padding:7px 9px;font-size:12.5px;min-width:0;width:100%}
+
+  .img-preview-strip{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  .img-preview-box{width:76px;height:54px;border-radius:8px;border:1.5px dashed #B8A59F;background:#F6F0ED;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:var(--ink);text-align:center;padding:4px}
 
   table{width:100%;border-collapse:collapse}
-  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:15px}
-  th{font-size:13px;color:var(--muted)}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:14.5px}
+  th{font-size:12.5px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em}
   .badge{display:inline-block;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700;background:#EFE9E6;color:var(--ink)}
 
-  /* Pure CSS Toggle Switches for Flavors */
-  .flav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line)}
+  /* Pure CSS Toggle Switches & Remove Control */
+  .flav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+  .flav:last-child{border-bottom:0}
+  .flav-main{display:flex;align-items:center;justify-content:space-between;flex:1;gap:12px}
   .flav-chk{display:none}
-  .sw{width:46px;height:26px;border-radius:13px;background:#C9C0BC;position:relative;display:inline-block}
+  .sw{width:46px;height:26px;border-radius:13px;background:#C9C0BC;position:relative;display:inline-block;flex-shrink:0}
   .sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .15s}
   .flav-chk:checked ~ .sw{background:var(--ok)}
   .flav-chk:checked ~ .sw::after{left:23px}
   .flav-label{font-weight:600}
   .flav-chk:not(:checked) + .flav-label{text-decoration:line-through;color:var(--muted)}
+  .flav-remove{background:#FFF4F3;color:var(--red);border:1px solid #F2C6C3;border-radius:7px;padding:6px 11px;font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap}
+  .flav-remove:hover{background:var(--red);color:#fff;border-color:var(--red)}
 
   .aside-actions{margin-top:auto;display:flex;flex-direction:column;gap:8px}
   .aside-actions a{display:block;text-align:center;background:#fff;color:#E3180F;padding:9px 12px;border-radius:8px;font-weight:800;font-size:13px;text-decoration:none}
@@ -115,6 +177,9 @@
     nav::-webkit-scrollbar{display:none}
     nav label{width:auto;flex:0 0 auto;text-align:center;padding:7px 12px;font-size:13px;border-radius:999px;white-space:nowrap}
     main{padding:18px 14px}
+    .unli-top{flex-direction:column;align-items:flex-start}
+    .deal-admin-row{flex-direction:column;align-items:flex-start}
+    .deal-admin-right{width:100%;justify-content:flex-end}
   }
 </style>
 </head>
@@ -270,36 +335,572 @@
 
   <!-- MENU VIEW -->
   <section id="sec-menu" class="view-section">
-    <h1>Menu</h1>
-    <p class="sub">Branch pricing reference. Unli flavors are managed in the Flavors tab.</p>
-    <div class="unli">
-      <div><b>Unlimited wings and rice + dip</b><span>Plus 1 serving of creamy ranch dip</span></div>
-      <span class="big">₱499</span>
+    <div class="menu-head">
+      <div>
+        <h1>Menu &amp; Deals Manager</h1>
+        <p class="sub" style="margin-bottom:0">Create Sulit banners or menu deals, edit existing items, toggle off/on, or delete.</p>
+      </div>
+      <span class="pill">Comembo Main • Deal Controls</span>
     </div>
+
+    <!-- Featured Sulit / Promo Banners (Editable) -->
+    <div class="sulit-admin-grid">
+      <div class="unli">
+        <div class="unli-top">
+          <div>
+            <span class="unli-pill-tag">Featured Banner · Top of Menu</span>
+            <b>Unlimited wings and rice + dip</b>
+            <span class="sub-copy">Plus 1 serving of creamy ranch dip · 90 mins dine-in · +₱50 All-In upgrade</span>
+          </div>
+          <span class="big">₱499</span>
+        </div>
+        <div class="unli-perks-strip">
+          <span>Unlimited Wings</span>
+          <span>Unlimited Rice</span>
+          <span>Creamy Ranch Dip</span>
+        </div>
+        <div class="unli-actions">
+          <details class="banner-edit-details">
+            <summary>Edit Sulit Deal Banner</summary>
+            <form class="banner-edit-form" action="#sec-menu" method="get">
+              <label class="field">Banner Title
+                <input value="Unlimited wings and rice + dip" required>
+              </label>
+              <label class="field">Price (₱)
+                <input type="number" value="499" required>
+              </label>
+              <label class="field">Badge Label
+                <input value="BEST VALUE • UNLIMITED REFILLS">
+              </label>
+              <label class="field">Image Placeholder
+                <select>
+                  <option selected>Unli Hero Photo Slot</option>
+                  <option>Sulit Combo Photo Slot</option>
+                  <option>Barkada Platter Photo Slot</option>
+                </select>
+              </label>
+              <label class="field edit-box-full">Perks &amp; Subcopy
+                <input value="Plus 1 serving of creamy ranch dip · 90 mins dine-in · +₱50 All-In upgrade">
+              </label>
+              <div class="edit-box-actions">
+                <button type="submit" class="btn xs">Save Banner</button>
+              </div>
+            </form>
+          </details>
+        </div>
+      </div>
+
+      <div class="unli secondary">
+        <div class="unli-top">
+          <div>
+            <span class="unli-pill-tag">Sulit Promo Banner · Secondary</span>
+            <b>Sulit Barkada Combo + 2 Fries</b>
+            <span class="sub-copy">16 pcs wings (4 flavors) + 2 flavored fries + 2 creamy ranch dips</span>
+          </div>
+          <span class="big">₱599</span>
+        </div>
+        <div class="unli-perks-strip">
+          <span>16 Pcs Wings</span>
+          <span>2 Flavored Fries</span>
+          <span>2 Ranch Dips</span>
+        </div>
+        <div class="unli-actions">
+          <details class="banner-edit-details">
+            <summary>Edit Sulit Promo Banner</summary>
+            <form class="banner-edit-form" action="#sec-menu" method="get">
+              <label class="field">Banner Title
+                <input value="Sulit Barkada Combo + 2 Fries" required>
+              </label>
+              <label class="field">Price (₱)
+                <input type="number" value="599" required>
+              </label>
+              <label class="field">Badge Label
+                <input value="BARKADA SULIT PROMO">
+              </label>
+              <label class="field">Image Placeholder
+                <select>
+                  <option selected>Sulit Combo Photo Slot</option>
+                  <option>Unli Hero Photo Slot</option>
+                  <option>Barkada Platter Photo Slot</option>
+                </select>
+              </label>
+              <label class="field edit-box-full">Perks &amp; Subcopy
+                <input value="16 pcs wings (4 flavors) + 2 flavored fries + 2 creamy ranch dips">
+              </label>
+              <div class="edit-box-actions">
+                <button type="submit" class="btn xs">Save Banner</button>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </form>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Deal / Sulit Banner Builder -->
+    <form class="panel" action="#sec-menu" method="get">
+      <h2 class="panel-title">Add a deal or Sulit promo banner</h2>
+      <div class="row">
+        <label class="field">Deal / Banner Name
+          <input name="dealName" placeholder="e.g. Sulit Duo Feast" required>
+        </label>
+        <label class="field">Deal Type
+          <select name="dealType">
+            <option>Sulit / Promo Banner</option>
+            <option>Solo Meal</option>
+            <option>Sampler Bucket</option>
+            <option>Party Platter</option>
+            <option>Fries &amp; Sides</option>
+          </select>
+        </label>
+        <label class="field">Menu Page Placement
+          <select name="menuPlacement">
+            <option>Featured Sulit Banners (Top)</option>
+            <option>Busolve Deals Grid</option>
+            <option>Party Platter Banner</option>
+            <option>Flavored Fries Grid</option>
+          </select>
+        </label>
+        <label class="field">Price (₱)
+          <input type="number" name="dealPrice" min="1" placeholder="499" required>
+        </label>
+        <label class="field">Image Placeholder
+          <select name="imgSlot">
+            <option>Sulit Banner Photo Slot</option>
+            <option>Wing Deal Photo Slot</option>
+            <option>Bucket Platter Photo Slot</option>
+            <option>Fries Side Photo Slot</option>
+          </select>
+        </label>
+      </div>
+      <div class="row" style="margin-top:10px;">
+        <label class="field" style="flex:1;min-width:220px;">Perks / Description / Upgrade Note
+          <input name="dealPerks" placeholder="e.g. Unlimited wings & rice + 1 ranch dip · +₱50 All-In upgrade">
+        </label>
+        <button type="submit" class="btn">Add deal</button>
+      </div>
+      <div class="img-preview-strip">
+        <div class="img-preview-box">Deal / Banner<br>Photo Slot</div>
+        <span>Choose <strong>Sulit / Promo Banner</strong> to build a featured red promo card like the ₱499 deal above, or click <strong>Edit</strong> on any existing deal below to update its price, placement, or perks.</span>
+      </div>
+    </form>
+
     <div class="menu-grid">
       <div class="panel">
-        <h2>Sulit Primo deals</h2>
-        <table>
-          <tbody>
-            <tr><td>Go Solo <span class="note">(2 pcs wings + rice)</span></td><td class="price">₱139</td></tr>
-            <tr><td>Primo Meal <span class="note">(4 pcs wings + rice)</span></td><td class="price">₱229</td></tr>
-            <tr><td>Double Sampler <span class="note">(8 pcs, 2 flavors)</span></td><td class="price">₱449</td></tr>
-            <tr><td>Triple Sampler <span class="note">(12 pcs, 3 flavors)</span></td><td class="price">₱659</td></tr>
-            <tr><td>Party Wings <span class="note">(24 pcs, 4 flavors)</span></td><td class="price">₱1,200</td></tr>
-          </tbody>
-        </table>
+        <h2>Busolve &amp; Party Deals <span>5 Items</span></h2>
+        <div class="deal-admin-list">
+          <!-- Go Solo -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Solo<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Go Solo</div>
+                  <div class="deal-admin-meta">Solo Meal · Busolve Deals Grid · 2 pcs + rice</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-gosolo" class="deal-chk" checked>
+                <span class="deal-price-tag">₱139</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-gosolo" class="sw" title="Toggle Go Solo"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Deal</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Deal Name<input value="Go Solo"></label>
+                  <label class="field">Price (₱)<input type="number" value="139"></label>
+                  <label class="field">Placement
+                    <select>
+                      <option selected>Busolve Deals Grid</option>
+                      <option>Featured Sulit Banners</option>
+                      <option>Party Platter Banner</option>
+                    </select>
+                  </label>
+                  <label class="field">Photo Slot
+                    <select>
+                      <option selected>Solo Meal Photo Slot</option>
+                      <option>Bucket Platter Photo Slot</option>
+                    </select>
+                  </label>
+                  <label class="field edit-box-full">Description / Perks
+                    <input value="2 Pcs Chicken Wings, 1 Choice of Flavor + Steamed Rice">
+                  </label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+
+          <!-- Primo Meal -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Meal<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Primo Meal</div>
+                  <div class="deal-admin-meta">Solo Meal · Busolve Deals Grid · 4 pcs + rice</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-primomeal" class="deal-chk" checked>
+                <span class="deal-price-tag">₱229</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-primomeal" class="sw" title="Toggle Primo Meal"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Deal</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Deal Name<input value="Primo Meal"></label>
+                  <label class="field">Price (₱)<input type="number" value="229"></label>
+                  <label class="field">Placement
+                    <select>
+                      <option selected>Busolve Deals Grid</option>
+                      <option>Featured Sulit Banners</option>
+                    </select>
+                  </label>
+                  <label class="field">Photo Slot
+                    <select>
+                      <option selected>Primo Meal Photo Slot</option>
+                      <option>Bucket Platter Photo Slot</option>
+                    </select>
+                  </label>
+                  <label class="field edit-box-full">Description / Perks
+                    <input value="4 Pcs Chicken Wings, 1 Choice of Flavor + Steamed Rice">
+                  </label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+
+          <!-- Double Sampler -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Duo<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Double Sampler</div>
+                  <div class="deal-admin-meta">Sampler Bucket · Busolve Deals Grid · 8 pcs, 2 flavors</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-double" class="deal-chk" checked>
+                <span class="deal-price-tag">₱449</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-double" class="sw" title="Toggle Double Sampler"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Deal</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Deal Name<input value="Double Sampler"></label>
+                  <label class="field">Price (₱)<input type="number" value="449"></label>
+                  <label class="field">Placement
+                    <select>
+                      <option selected>Busolve Deals Grid</option>
+                      <option>Featured Sulit Banners</option>
+                    </select>
+                  </label>
+                  <label class="field">Photo Slot
+                    <select>
+                      <option selected>Duo Bucket Photo Slot</option>
+                    </select>
+                  </label>
+                  <label class="field edit-box-full">Description / Perks
+                    <input value="8 Pcs Chicken Wings with up to 2 Signature Flavors">
+                  </label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+
+          <!-- Triple Sampler -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Trio<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Triple Sampler</div>
+                  <div class="deal-admin-meta">Sampler Bucket · Busolve Deals Grid · 12 pcs, 3 flavors</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-triple" class="deal-chk" checked>
+                <span class="deal-price-tag">₱659</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-triple" class="sw" title="Toggle Triple Sampler"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Deal</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Deal Name<input value="Triple Sampler"></label>
+                  <label class="field">Price (₱)<input type="number" value="659"></label>
+                  <label class="field">Placement
+                    <select>
+                      <option selected>Busolve Deals Grid</option>
+                      <option>Featured Sulit Banners</option>
+                    </select>
+                  </label>
+                  <label class="field">Photo Slot
+                    <select>
+                      <option selected>Trio Bucket Photo Slot</option>
+                    </select>
+                  </label>
+                  <label class="field edit-box-full">Description / Perks
+                    <input value="12 Pcs Chicken Wings with up to 3 Signature Flavors">
+                  </label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+
+          <!-- Party Wings -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Party<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Party Wings</div>
+                  <div class="deal-admin-meta">Party Platter · Party Platter Banner · 24 pcs, 4 flavors</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-party" class="deal-chk" checked>
+                <span class="deal-price-tag">₱1,200</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-party" class="sw" title="Toggle Party Wings"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Deal</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Deal Name<input value="Party Wings"></label>
+                  <label class="field">Price (₱)<input type="number" value="1200"></label>
+                  <label class="field">Placement
+                    <select>
+                      <option selected>Party Platter Banner</option>
+                      <option>Featured Sulit Banners</option>
+                    </select>
+                  </label>
+                  <label class="field">Photo Slot
+                    <select>
+                      <option selected>Party Platter Photo Slot</option>
+                    </select>
+                  </label>
+                  <label class="field edit-box-full">Description / Perks
+                    <input value="Loaded party platter featuring 24 crispy chicken wings, up to 4 signature flavors, and dips.">
+                  </label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div class="panel">
-        <h2>Extras &amp; Sides</h2>
-        <table>
-          <tbody>
-            <tr><td>Flavored Fries <span class="note">(Plain / BBQ / Sour Cream / Cheese)</span></td><td class="price">₱99</td></tr>
-            <tr><td>Creamy Ranch Dip</td><td class="price">₱30</td></tr>
-            <tr><td>Primo's Dip</td><td class="price">₱30</td></tr>
-            <tr><td>Java Rice</td><td class="price">₱30</td></tr>
-            <tr><td>Plain Rice</td><td class="price">₱25</td></tr>
-          </tbody>
-        </table>
+        <h2>Fries, Dips &amp; Rice <span>5 Items</span></h2>
+        <div class="deal-admin-list">
+          <!-- Flavored Fries -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Fries<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Flavored Fries</div>
+                  <div class="deal-admin-meta">Fries &amp; Sides · Flavored Fries Grid · Plain / BBQ / Sour Cream / Cheese</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-fries" class="deal-chk" checked>
+                <span class="deal-price-tag">₱99</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-fries" class="sw" title="Toggle Flavored Fries"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Item</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Item Name<input value="Flavored Fries"></label>
+                  <label class="field">Price (₱)<input type="number" value="99"></label>
+                  <label class="field">Placement
+                    <select>
+                      <option selected>Flavored Fries Grid</option>
+                      <option>Busolve Deals Grid</option>
+                    </select>
+                  </label>
+                  <label class="field">Photo Slot
+                    <select>
+                      <option selected>Fries Side Photo Slot</option>
+                    </select>
+                  </label>
+                  <label class="field edit-box-full">Flavors / Description
+                    <input value="Plain, Spicy BBQ, Sour Cream, Primo's Cheese">
+                  </label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+
+          <!-- Creamy Ranch Dip -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Dip<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Creamy Ranch Dip</div>
+                  <div class="deal-admin-meta">Fries &amp; Sides · Extras &amp; Dips</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-ranch" class="deal-chk" checked>
+                <span class="deal-price-tag">₱30</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-ranch" class="sw" title="Toggle Creamy Ranch Dip"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Item</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Item Name<input value="Creamy Ranch Dip"></label>
+                  <label class="field">Price (₱)<input type="number" value="30"></label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+
+          <!-- Primo's Dip -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Dip<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Primo's Dip</div>
+                  <div class="deal-admin-meta">Fries &amp; Sides · Extras &amp; Dips</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-primosdip" class="deal-chk" checked>
+                <span class="deal-price-tag">₱30</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-primosdip" class="sw" title="Toggle Primo's Dip"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Item</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Item Name<input value="Primo's Dip"></label>
+                  <label class="field">Price (₱)<input type="number" value="30"></label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+
+          <!-- Java Rice -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Rice<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Java Rice</div>
+                  <div class="deal-admin-meta">Fries &amp; Sides · Extras &amp; Rice</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-java" class="deal-chk" checked>
+                <span class="deal-price-tag">₱30</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-java" class="sw" title="Toggle Java Rice"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Item</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Item Name<input value="Java Rice"></label>
+                  <label class="field">Price (₱)<input type="number" value="30"></label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+
+          <!-- Plain Rice -->
+          <div class="deal-item-wrap">
+            <div class="deal-admin-row">
+              <div class="deal-admin-left">
+                <div class="img-slot">Rice<br>Img</div>
+                <div class="deal-admin-info">
+                  <div class="deal-admin-name">Plain Rice</div>
+                  <div class="deal-admin-meta">Fries &amp; Sides · Extras &amp; Rice</div>
+                </div>
+              </div>
+              <div class="deal-admin-right">
+                <input type="checkbox" id="d-plain" class="deal-chk" checked>
+                <span class="deal-price-tag">₱25</span>
+                <span class="deal-state-text">ON</span>
+                <label for="d-plain" class="sw" title="Toggle Plain Rice"></label>
+                <a href="#sec-menu" class="flav-remove">Delete</a>
+              </div>
+            </div>
+            <div style="padding:0 10px 10px;">
+              <details class="edit-drawer">
+                <summary>Edit Item</summary>
+                <form class="edit-box" action="#sec-menu" method="get">
+                  <label class="field">Item Name<input value="Plain Rice"></label>
+                  <label class="field">Price (₱)<input type="number" value="25"></label>
+                  <div class="edit-box-actions">
+                    <button type="submit" class="btn xs">Save Changes</button>
+                  </div>
+                </form>
+              </details>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -307,19 +908,57 @@
   <!-- FLAVORS VIEW -->
   <section id="sec-flavors" class="view-section">
     <h1>Flavors</h1>
-    <p class="sub">Toggle switches below to mark any of the 11 signature flavors available or sold out.</p>
+    <p class="sub">Toggle switches below to mark any flavor available or sold out, or add a new flavor.</p>
+    <form class="panel row" action="#sec-flavors" method="get">
+      <label class="field">Flavor name<input name="flavor" placeholder="e.g. Spicy Mango" required></label>
+      <button type="submit" class="btn">Add flavor</button>
+    </form>
     <div class="panel">
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Primo's Buffalo</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Jack Daniel's</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Primo's Sisig</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Salted Egg</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Cheese Bomb</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Garlic Parmesan</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Honey Mustard</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Smokey BBQ</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Korean Yangnyeom</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Honey Sriracha</span><span class="sw"></span></label>
-      <label class="flav"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Salt &amp; Pepper</span><span class="sw"></span></label>
+      <h2 class="panel-title">Signature flavors</h2>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Primo's Buffalo</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Primo's Buffalo">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Jack Daniel's</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Jack Daniel's">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Primo's Sisig</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Primo's Sisig">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Salted Egg</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Salted Egg">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Cheese Bomb</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Cheese Bomb">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Garlic Parmesan</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Garlic Parmesan">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Honey Mustard</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Honey Mustard">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Smokey BBQ</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Smokey BBQ">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Korean Yangnyeom</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Korean Yangnyeom">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Honey Sriracha</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Honey Sriracha">Remove</a>
+      </div>
+      <div class="flav">
+        <label class="flav-main"><input type="checkbox" class="flav-chk" checked><span class="flav-label">Salt &amp; Pepper</span><span class="sw"></span></label>
+        <a href="#sec-flavors" class="flav-remove" aria-label="Remove Salt &amp; Pepper">Remove</a>
+      </div>
     </div>
   </section>
 
