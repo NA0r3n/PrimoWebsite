@@ -83,20 +83,25 @@
 /* Sulit Unli Deal & Custom Sulit Promo Banners */
 .unli-banner-section {
   max-width: 1080px;
-  margin: 2.5rem auto 0;
+  margin: 2rem auto 0;
   padding: 0 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .unli-card {
   display: grid;
-  grid-template-columns: 1.45fr 0.75fr;
+  grid-template-columns: minmax(0, 1.55fr) minmax(150px, 0.7fr);
+  align-items: stretch;
   border-radius: 14px;
   overflow: hidden;
   background: #141416;
   border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.unli-hero-card {
+  border: 1.5px solid rgba(255, 207, 64, 0.35);
 }
 
 .sulit-promo-card {
@@ -105,11 +110,12 @@
 
 .unli-left {
   background: linear-gradient(125deg, #1f1717 0%, #2c1414 100%);
-  padding: 1.75rem;
+  padding: 1.15rem 1.3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.45rem;
+  min-width: 0;
 }
 
 .sulit-promo-card .unli-left {
@@ -117,36 +123,54 @@
 }
 
 .banner-img-placeholder {
-  height: 62px;
+  height: 54px;
   margin-bottom: 0;
   background: rgba(14, 14, 17, 0.45);
   border-color: rgba(255, 207, 64, 0.5);
   color: #fef3c7;
 }
 
+.unli-hero-placeholder {
+  background: rgba(255, 207, 64, 0.07);
+  border-color: rgba(255, 207, 64, 0.55);
+  color: #fde68a;
+}
+
 .unli-pill {
   align-self: flex-start;
   background: rgba(0, 0, 0, 0.65);
   color: var(--primo-gold, #ffcf40);
-  font-size: 0.65rem;
+  font-size: 0.64rem;
   font-weight: 800;
-  letter-spacing: 1px;
-  padding: 0.3rem 0.7rem;
+  letter-spacing: 0.9px;
+  padding: 0.25rem 0.65rem;
   border-radius: 999px;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .unli-left h2 {
   font-family: Outfit, sans-serif;
-  font-size: 2rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   font-weight: 900;
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.08;
+  overflow-wrap: break-word;
 }
 
 .unli-subcopy {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #f3f4f6;
   margin: 0;
+  line-height: 1.38;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .unli-subcopy strong {
@@ -155,58 +179,72 @@
 
 .unli-perks {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.65rem;
-  margin: 0.35rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.5rem;
+  margin: 0.2rem 0;
 }
 
 .perk-box {
   background: rgba(20, 20, 22, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 8px;
-  padding: 0.6rem 0.7rem;
+  padding: 0.5rem 0.65rem;
   display: flex;
-  align-items: center;
-  gap: 0.55rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.12rem;
+  min-width: 0;
 }
 
-.perk-box i {
-  font-size: 1.35rem;
-  color: var(--primo-gold, #ffcf40);
-  flex-shrink: 0;
+.perk-box i,
+.perk-box .perk-emoji,
+.perk-box .emoji {
+  display: none;
 }
 
 .perk-box strong {
   display: block;
-  font-size: 0.76rem;
+  font-size: 0.75rem;
+  line-height: 1.25;
   color: #ffffff;
+  overflow-wrap: break-word;
 }
 
 .perk-box span {
   display: block;
   font-size: 0.65rem;
+  line-height: 1.25;
   color: #d1d5db;
+  overflow-wrap: break-word;
 }
 
 .all-in-bar {
   background: #ffffff;
   color: #141416;
   border-radius: 8px;
-  padding: 0.6rem 0.8rem;
+  padding: 0.45rem 0.7rem;
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  font-size: 0.76rem;
+  gap: 0.55rem;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  min-width: 0;
+}
+
+.all-in-bar span:last-child {
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .all-in-badge {
   background: #dc2626;
   color: #ffffff;
   font-weight: 900;
-  font-size: 0.7rem;
-  padding: 0.25rem 0.6rem;
+  font-size: 0.68rem;
+  padding: 0.22rem 0.55rem;
   border-radius: 4px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .unli-right {
@@ -216,44 +254,50 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem 1.5rem;
-  gap: 0.4rem;
+  padding: 1.15rem 1rem;
+  gap: 0.25rem;
+  min-width: 0;
 }
 
 .unli-label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
+  line-height: 1.25;
   color: var(--primo-gold, #ffcf40);
 }
 
 .unli-price {
-  font-size: 3rem;
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.05;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .unli-sub {
-  font-size: 0.72rem;
-  letter-spacing: 2px;
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  line-height: 1.25;
   color: #a1a1aa;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.35rem;
 }
 
 .unli-cta-btn {
+  font-family: inherit;
   background: #eab308;
   color: #111111;
   border: none;
   border-radius: 999px;
-  padding: 0.7rem 1.4rem;
-  font-size: 0.78rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.74rem;
   font-weight: 900;
   letter-spacing: 0.5px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
   cursor: pointer;
   transition: transform 0.15s ease, background-color 0.2s ease;
 }
@@ -302,6 +346,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
+  min-width: 0;
 }
 
 /* Image Placeholders & Friendly Sold-Out State */
@@ -324,8 +369,8 @@
 }
 
 .party-img-placeholder {
-  width: 140px;
-  height: 92px;
+  width: 136px;
+  height: 76px;
   margin-bottom: 0;
   flex-shrink: 0;
   background: rgba(20, 20, 22, 0.45);
@@ -352,6 +397,14 @@
 .party-banner.is-sold-out .sold-out-note,
 .fry-card.is-sold-out .sold-out-note {
   display: block;
+}
+
+.deal-card.is-sold-out .add-btn,
+.party-banner.is-sold-out .party-btn,
+.fry-card.is-sold-out .fry-btn {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 
 .deal-top {
@@ -404,6 +457,7 @@
 }
 
 .add-btn {
+  font-family: inherit;
   background: #27272c;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -488,6 +542,7 @@
 }
 
 .party-btn {
+  font-family: inherit;
   width: 100%;
   background: var(--primo-gold, #ffcf40);
   color: #141416;
@@ -560,6 +615,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .fry-body {
@@ -574,7 +630,7 @@
 .fry-title-row {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 0.5rem;
 }
 
@@ -588,6 +644,7 @@
   font-size: 0.9rem;
   font-weight: 900;
   color: #dc2626;
+  white-space: nowrap;
 }
 
 .fry-body p {
@@ -602,6 +659,7 @@
 }
 
 .fry-btn {
+  font-family: inherit;
   width: 100%;
   background: #141416;
   color: #ffffff;
@@ -627,7 +685,9 @@
   top: 0;
   right: 0;
   width: min(410px, 100vw);
+  max-width: 100vw;
   height: 100vh;
+  height: 100dvh;
   background: #141416;
   color: #ffffff;
   border-left: 1px solid rgba(255, 255, 255, 0.14);
@@ -643,6 +703,11 @@
 #craving-planner.active,
 #craving-planner:target {
   transform: translateX(0);
+}
+
+#craving-planner button,
+#craving-planner input {
+  font-family: inherit;
 }
 
 #craving-planner .header {
@@ -1139,6 +1204,24 @@
   background: #1d4ed8;
 }
 
+/* Keyboard Focus Visibility */
+:is(
+  .unli-cta-btn,
+  .add-btn,
+  .party-btn,
+  .fry-btn,
+  .flavor-option-btn,
+  .flavor-cancel-btn,
+  .flavor-confirm-btn,
+  .btn-submit-order,
+  .btn-clear,
+  .btn-copy,
+  .btn-fb-send
+):focus-visible {
+  outline: 2px solid var(--primo-gold, #ffcf40);
+  outline-offset: 2px;
+}
+
 /* ================= RESPONSIVE BREAKPOINTS ================= */
 @media (max-width: 900px) {
   .menu-hero-inner {
@@ -1148,6 +1231,18 @@
 
   .unli-card {
     grid-template-columns: 1fr;
+  }
+
+  .unli-right {
+    padding: 1rem 1.25rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .unli-sub {
+    margin-bottom: 0;
   }
 
   .deals-grid {
@@ -1165,14 +1260,21 @@
 
 @media (max-width: 640px) {
   .unli-perks {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 560px) {
+  .unli-perks,
   .deals-grid,
   .fries-grid {
     grid-template-columns: 1fr;
+  }
+
+  .unli-right {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .party-banner {
